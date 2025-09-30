@@ -10,7 +10,7 @@ export function Header() {
   const [isAboutOpen, setIsAboutOpen] = useState(false)
 
   return (
-    <header className="w-full position:sticky top-0 z-50">
+    <header className="w-full position:sticky top-0 z-50 bg-black">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
       </style>

@@ -8,6 +8,12 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+@font-face {
+      font-family: "Arial MT Pro"; 
+      src: local("Arial MT Pro"), url("./fonts/arial-mt-pro-regular.otf") format("opentype");
+      font-weight: normal; 
+      font-style: normal; 
+  }
 html,
 body {
   @apply bg-white dark:bg-gray-950;
