@@ -11,6 +11,9 @@ export function Header() {
 
   return (
     <header className="w-full position:sticky top-0 z-50">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+      </style>
       {/* Emergency Banner */}
       <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-sm">
         If you are experiencing a medical emergency, please contact 911. Our next clinic will be on September 27, 2025.
@@ -26,7 +29,7 @@ export function Header() {
                 <img src={logo} alt="Main" className="w-auto h-auto text-primary" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">BCS FREE HEALTH CLINIC</h1>
+                <h1 className="text-3xl font-[Bebas_Neue] text-white ">BCS FREE HEALTH CLINIC</h1>
               </div>
             </div>
 
