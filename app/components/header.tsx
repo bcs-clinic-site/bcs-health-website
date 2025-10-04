@@ -1,16 +1,16 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "~/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "~/components/ui/dropdown-menu"
+import { Button } from "./ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { ChevronDown, Heart } from "lucide-react"
 import '../css/globals.css';
-import logo from './Clinic Logo.png';
+import logo from '../home/Clinic Logo.png';
 export function Header() {
   const [isAboutOpen, setIsAboutOpen] = useState(false)
 
   return (
-    <header className="w-full position:sticky top-0 z-50 bg-black">
+    <header className="w-full sticky top-0 z-50 bg-black">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
       </style>
