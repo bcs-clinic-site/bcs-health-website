@@ -43,7 +43,7 @@ const bottomRow: Group[] = [
 export default function Team() {
   return (
     <div className="flex flex-col space-y-12 ">
-        <h1 className="text-5xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">Our Team</h1>
+        <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">Our Team</h1>
       {/* Top Row */}
       <div className="flex justify-center gap-10">
         {topRow.map((member, i) => (
@@ -95,7 +95,7 @@ export default function Team() {
 </div>
 
     <div>
-        <h1 className="text-5xl text-primary mt-5 mx-32 font-[Bebas_Neue] text-center">Clinic Management System</h1>
+        <h1 className="text-6xl text-primary mt-5 mx-32 font-[Bebas_Neue] text-center">Clinic Management System</h1>
         <img
             src={Heirarchy}
             alt={"Heirarchy"}
