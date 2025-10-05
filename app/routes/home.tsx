@@ -14,8 +14,8 @@ import volunteering from '../home/IMG_9867.jpg'
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Home - BCS Free Health Clinic" },
+    { name: "description", content: "BCS Free Health Clinic" },
   ];
 }
 
