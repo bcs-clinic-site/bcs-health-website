@@ -128,29 +128,35 @@ export default function Home() {
     <div className="mt-8 ml-8 mr-8 text-16 font-[Arial_MT_Pro] text-primary text-center">
         Use any of the three buttons below to leave a personal review, Google Review, or Yelp Review! Any feedback would be greatly appreciated!
     <br />
-    <Button
-        size="lg"
-        variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl"
-      >
-        Access our Feedback Form Here
-    </Button>
+    <a href = "https://docs.google.com/forms/d/e/1FAIpQLSe9W3QBPBOrKzf_HFPVtY4skczE0fAuWUxuCpSOQLzIjaAfZQ/viewform" target = "_blank" rel="noopener noreferrer">
+      <Button
+          size="lg"
+          variant="secondary"
+          className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl cursor-pointer"
+        >
+          Access our Feedback Form Here
+      </Button>
+    </a>
     <br />
-    <Button
-        size="lg"
-        variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl"
-      >
-        Access our Google Reviews Here
-    </Button>
+    <a href = "https://g.page/r/CRBpGPgmdW1HEBM/review" target = "_blank" rel="noopener noreferrer">
+      <Button
+          size="lg"
+          variant="secondary"
+          className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl cursor-pointer"
+        >
+          Access our Google Reviews Here
+      </Button>
+    </a>
     <br />
-    <Button
-        size="lg"
-        variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl"
-      >
-        Access our Yelp Here
-    </Button>
+    <a href = "https://www.yelp.com/biz/bryan-college-station-free-health-clinic-college-station" target = "_blank" rel="noopener noreferrer">
+      <Button
+          size="lg"
+          variant="secondary"
+          className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl cursor-pointer"
+        >
+          Access our Yelp Here
+      </Button>
+    </a>
     </div>
     
 
