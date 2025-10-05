@@ -10,4 +10,8 @@ export default [
     path: "about/providers",
     file: "routes/about/providers.tsx"
   },
+  {
+    path: "about/partners",
+    file: "routes/about/partners.tsx"
+  }
 ] satisfies RouteConfig;

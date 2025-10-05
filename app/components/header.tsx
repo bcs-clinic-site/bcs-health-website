@@ -19,8 +19,7 @@ export function Header() {
   // Updated to objects with .name and .path
   const aboutItems = [
     { name: "Our Team", path: "/about/team" },
-    {name: "Our Providers", path: "/about/providers"},
-    { name: "Our Mission", path: "/about/mission" },
+    { name: "Our Providers", path: "/about/providers"},
     { name: "Our Partners", path: "/about/partners" },
     { name: "Reports", path: "/about/reports" },
   ]
