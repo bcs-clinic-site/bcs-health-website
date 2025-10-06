@@ -103,6 +103,7 @@ export function Header() {
                     <DropdownMenuItem
                       key={item.name}
                       className={`dropdown-hover ${isActive(item.path, true)}`}
+                      onClick={() => setIsAboutOpen(false)} 
                     >
                       <Link to={item.path}>{item.name}</Link>
                     </DropdownMenuItem>
@@ -126,6 +127,7 @@ export function Header() {
                     <DropdownMenuItem
                       key={item.name}
                       className={`dropdown-hover ${isActive(item.path, true)}`}
+                      onClick={() => setIsServicesOpen(false)} 
                     >
                       <Link to={item.path}>{item.name}</Link>
                     </DropdownMenuItem>
@@ -149,6 +151,7 @@ export function Header() {
                     <DropdownMenuItem
                       key={item.name}
                       className={`dropdown-hover ${isActive(item.path, true)}`}
+                      onClick={() => setIsInvolvedOpen(false)} 
                     >
                       <Link to={item.path}>{item.name}</Link>
                     </DropdownMenuItem>
@@ -172,6 +175,7 @@ export function Header() {
                     <DropdownMenuItem
                       key={item.name}
                       className={`dropdown-hover ${isActive(item.path, true)}`}
+                      onClick={() => setIsSynopOpen(false)} 
                     >
                       <Link to={item.path}>{item.name}</Link>
                     </DropdownMenuItem>
