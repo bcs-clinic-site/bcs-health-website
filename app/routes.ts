@@ -13,5 +13,9 @@ export default [
   {
     path: "about/partners",
     file: "routes/about/partners.tsx"
+  },
+  {
+    path: "about/reports",
+    file: "routes/about/reports.tsx"
   }
 ] satisfies RouteConfig;
