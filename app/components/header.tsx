@@ -38,12 +38,12 @@ export function Header() {
     { name: "Education Events", path: "/involved/education" },
   ]
   const synopItems = [
-    { name: "Symposium Details", path: "/synopsism/details" },
-    { name: "Applications", path: "/synopsism/applications" },
-    { name: "Past Winners", path: "/synopsism/winners" },
-    { name: "Abstract Booklets", path: "/synopsism/abstracts" },
-    { name: "Symposium Reports", path: "/synopsism/reports" },
-    { name: "Gallery", path: "/synopsism/gallery" },
+    { name: "Symposium Details", path: "/symposium/details" },
+    { name: "Applications", path: "/symposium/applications" },
+    { name: "Past Winners", path: "/symposium/winners" },
+    { name: "Abstract Booklets", path: "/symposium/abstracts" },
+    { name: "Symposium Reports", path: "/symposium/reports" },
+    { name: "Gallery", path: "/symposium/gallery" },
   ]
 
   const isActive = (page: string, isDropdown = false): string => 
@@ -159,14 +159,14 @@ export function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Synopsism */}
+              {/* Symposium */}
               <DropdownMenu open={isSynopOpen} onOpenChange={setIsSynopOpen}>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
                     className={`${isCategoryActive(synopItems) ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center`}
                   >
-                    Synopsism
+                    Symposium
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
