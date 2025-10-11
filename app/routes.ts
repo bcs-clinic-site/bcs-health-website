@@ -33,5 +33,5 @@ export default [
   { path: "symposium/gallery", file: "routes/symposium/gallery.tsx" },
 
   // Contact page
-  //{ path: "contact", file: "routes/contact.tsx" },
+  { path: "contact", file: "routes/contact.tsx" },
 ] satisfies RouteConfig;

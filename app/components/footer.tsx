@@ -49,7 +49,7 @@ export function Footer() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900"
+                  className="mt-1 block w-full rounded-md border border-primary bg-white px-3 py-2 text-primary"
                   required
                 />
               </div>
@@ -61,7 +61,7 @@ export function Footer() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900"
+                  className="mt-1 block w-full rounded-md border border-primary bg-white px-3 py-2 text-primary"
                   required
                 />
               </div>
@@ -72,7 +72,7 @@ export function Footer() {
                   id="footer-message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900"
+                  className="mt-1 block w-full rounded-md border border-primary bg-white px-3 py-2 text-primary"
                   rows={4}
                   required
                 />

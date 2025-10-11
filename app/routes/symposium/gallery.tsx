@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Winners() {
+export default function Gallery() {
   return (
     <div>
         <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">Threads of Knowledge 2025</h1>
