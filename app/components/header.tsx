@@ -82,7 +82,7 @@ export function Header() {
               {/* Home */}
               <Button
                 variant="ghost"
-                className={`${isActive("/")} hover:bg-[#dd73b5]`}
+                className={`${isActive("/")} hover:bg-[#dd73b5] cursor-pointer`}
               >
                 <Link to="/">Home</Link>
               </Button>
@@ -92,7 +92,7 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className={`${isCategoryActive(aboutItems) || activePage === "About Us" ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center`}
+                    className={`${isCategoryActive(aboutItems) || activePage === "About Us" ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center cursor-pointer`}
                   >
                     About Us
                     <ChevronDown className="ml-1 h-4 w-4" />
@@ -100,12 +100,13 @@ export function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {aboutItems.map(item => (
-                    <DropdownMenuItem
-                      key={item.name}
-                      className={`dropdown-hover ${isActive(item.path, true)}`}
-                      onClick={() => setIsAboutOpen(false)} 
-                    >
-                      <Link to={item.path}>{item.name}</Link>
+                    <DropdownMenuItem asChild key={item.name} onClick={() => setIsAboutOpen(false)}>
+                      <Link
+                        to={item.path}
+                        className={`w-full block px-2 py-1.5 ${isActive(item.path, true)} cursor-pointer`}
+                      >
+                        {item.name}
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -116,7 +117,7 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className={`${isCategoryActive(servicesItems) ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center`}
+                    className={`${isCategoryActive(servicesItems) ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center cursor-pointer`}
                   >
                     Services
                     <ChevronDown className="ml-1 h-4 w-4" />
@@ -124,12 +125,13 @@ export function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {servicesItems.map(item => (
-                    <DropdownMenuItem
-                      key={item.name}
-                      className={`dropdown-hover ${isActive(item.path, true)}`}
-                      onClick={() => setIsServicesOpen(false)} 
-                    >
-                      <Link to={item.path}>{item.name}</Link>
+                    <DropdownMenuItem asChild key={item.name} onClick={() => setIsServicesOpen(false)}>
+                      <Link
+                        to={item.path}
+                        className={`w-full block px-2 py-1.5 ${isActive(item.path, true)} cursor-pointer`}
+                      >
+                        {item.name}
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -140,7 +142,7 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className={`${isCategoryActive(involvedItems) ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center`}
+                    className={`${isCategoryActive(involvedItems) ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center cursor-pointer`}
                   >
                     Get Involved
                     <ChevronDown className="ml-1 h-4 w-4" />
@@ -148,12 +150,13 @@ export function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {involvedItems.map(item => (
-                    <DropdownMenuItem
-                      key={item.name}
-                      className={`dropdown-hover ${isActive(item.path, true)}`}
-                      onClick={() => setIsInvolvedOpen(false)} 
-                    >
-                      <Link to={item.path}>{item.name}</Link>
+                    <DropdownMenuItem asChild key={item.name} onClick={() => setIsInvolvedOpen(false)}>
+                      <Link
+                        to={item.path}
+                        className={`w-full block px-2 py-1.5 ${isActive(item.path, true)} cursor-pointer`}
+                      >
+                        {item.name}
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -164,7 +167,7 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className={`${isCategoryActive(synopItems) ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center`}
+                    className={`${isCategoryActive(synopItems) ? "text-[#FF69B4]" : "text-white"} hover:bg-[#dd73b5] flex items-center cursor-pointer`}
                   >
                     Symposium
                     <ChevronDown className="ml-1 h-4 w-4" />
@@ -172,12 +175,13 @@ export function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   {synopItems.map(item => (
-                    <DropdownMenuItem
-                      key={item.name}
-                      className={`dropdown-hover ${isActive(item.path, true)}`}
-                      onClick={() => setIsSynopOpen(false)} 
-                    >
-                      <Link to={item.path}>{item.name}</Link>
+                    <DropdownMenuItem asChild key={item.name} onClick={() => setIsSynopOpen(false)}>
+                      <Link
+                        to={item.path}
+                        className={`w-full block px-2 py-1.5 ${isActive(item.path, true)} cursor-pointer`}
+                      >
+                        {item.name}
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -186,7 +190,7 @@ export function Header() {
               {/* Contact Us */}
               <Button
                 variant="ghost"
-                className={`${isActive("/contact")} hover:bg-[#dd73b5]`}
+                className={`${isActive("/contact")} hover:bg-[#dd73b5] cursor-pointer`}
               >
                 <Link to="/contact">Contact Us</Link>
               </Button>
