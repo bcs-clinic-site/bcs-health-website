@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import partnersImg from '../../about/partners/partners.png'
+import partnersImg from '../../images/about/partners/partners.png'
 import type { Route } from "../+types/home";
 
 export function meta({}: Route.MetaArgs) {

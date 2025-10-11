@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import Heirarchy from '../../about/team/Heirarchy Chart Picture.png'
+import Heirarchy from '../../images/about/team/Heirarchy Chart Picture.png'
 import type { Route } from "../+types/home";
 import { Link } from "react-router";
 
@@ -13,7 +13,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 // Import all images dynamically
-const images = import.meta.glob('../../about/providers/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>;
+const images = import.meta.glob('../../images/about/providers/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>;
 
 // Map filenames to URLs
 const imageMap: Record<string, string> = {};

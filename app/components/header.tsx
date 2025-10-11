@@ -5,7 +5,7 @@ import { Button } from "./ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { ChevronDown } from "lucide-react"
 import '../css/globals.css';
-import logo from '../home/Clinic Logo.png';
+import logo from '../images/home/Clinic Logo.png';
 import { Link, useLocation } from "react-router";
 
 export function Header() {

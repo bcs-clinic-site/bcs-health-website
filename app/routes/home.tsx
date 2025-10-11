@@ -3,14 +3,14 @@ import { Welcome } from "../welcome/welcome";
 import { Header } from "~/components/header";
 import { Button } from "~/components/ui/button"
 
-import myImg from '../home/Top Graphic.png'
-import logo from '../home/Clinic Logo.png';
+import myImg from '../images/home/Top Graphic.png'
+import logo from '../images/home/Clinic Logo.png';
 import QuoteCarousel from "~/components/quotes";
 
-import welcomeImg from '../home/IMG_1128.jpg'
-import chairs from '../home/IMG_1185.jpg'
-import table from '../home/IMG_9856.jpg'
-import volunteering from '../home/IMG_9867.jpg'
+import welcomeImg from '../images/home/IMG_1128.jpg'
+import chairs from '../images/home/IMG_1185.jpg'
+import table from '../images/home/IMG_9856.jpg'
+import volunteering from '../images/home/IMG_9867.jpg'
 
 export function meta({}: Route.MetaArgs) {
   return [

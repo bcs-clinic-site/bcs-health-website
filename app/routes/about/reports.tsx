@@ -4,7 +4,7 @@ import React from "react";
 import type { Route } from "../+types/home";
 
 // Import all report cover images
-const images = import.meta.glob('../../about/reports/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>;
+const images = import.meta.glob('../../images/about/reports/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>;
 const imageMap: Record<string, string> = {};
 Object.keys(images).forEach(path => {
   const parts = path.split('/');

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import feedback from '../home/Feedback Background.png'
+import feedback from '../images/home/Feedback Background.png'
 
 export default function QuoteCarousel() {
   const quotes = [
