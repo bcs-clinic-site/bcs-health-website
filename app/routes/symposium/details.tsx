@@ -11,12 +11,12 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Partners() {
+export default function Details() {
   return (
     <div>
         <img
             src={aboutImg}
-            alt={"Partners"}
+            alt={"Threads of Knowledge"}
             className="object-cover m-auto mt-20"
             />
 
