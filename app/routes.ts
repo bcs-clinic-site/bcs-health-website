@@ -27,7 +27,7 @@ export default [
   
   { path: "symposium/details", file: "routes/symposium/details.tsx" },
   { path: "symposium/applications", file: "routes/symposium/applications.tsx" },
-  //{ path: "symposium/winners", file: "routes/symposium/winners.tsx" },
+  { path: "symposium/winners", file: "routes/symposium/winners.tsx" },
   //{ path: "symposium/abstracts", file: "routes/symposium/abstracts.tsx" },
   //{ path: "symposium/reports", file: "routes/symposium/reports.tsx" },
   //{ path: "symposium/gallery", file: "routes/symposium/gallery.tsx" },
