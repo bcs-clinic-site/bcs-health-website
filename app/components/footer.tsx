@@ -55,7 +55,7 @@ export function Footer() {
       const data = await response.json();
       if (response.status === 403) {
         setStatus(
-          "⚠️ Your message couldn’t be sent right now. Please wait a bit and try again."
+          "⚠️ Your message couldn't be sent right now. Please wait a bit and try again."
         );
         return;
       }
@@ -149,7 +149,7 @@ export function Footer() {
          <div className="flex items-center gap-3">
           <Button
             type="submit"
-            className="border border-white text-white hover:bg-[#dd73b5]"
+            className="border border-white text-white hover:bg-[#dd73b5] cursor-pointer"
           >
             Submit
           </Button>

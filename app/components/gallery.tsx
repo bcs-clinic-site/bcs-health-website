@@ -104,14 +104,14 @@ const Gallery: React.FC<DriveGalleryProps> = ({ data }) => {
                   <button
                     onClick={() => handlePrev(folder)}
                     disabled={currentPage === 0}
-                    className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-1 rounded-full transition disabled:opacity-30"
+                    className={`absolute top-1/2 left-2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-1 rounded-full transition disabled:opacity-30 ${currentPage == 0 ? "cursor-not-allowed" : "cursor-pointer"}`}
                   >
                     <ChevronLeft size={32} />
                   </button>
                   <button
                     onClick={() => handleNext(folder, images.length)}
                     disabled={currentPage >= totalPages - 1}
-                    className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-1 rounded-full transition disabled:opacity-30"
+                    className={`absolute top-1/2 right-2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-1 rounded-full transition disabled:opacity-30 ${currentPage >= totalPages - 1 ? "cursor-not-allowed" : "cursor-pointer"}`} 
                   >
                     <ChevronRight size={32} />
                   </button>

@@ -235,7 +235,7 @@ export default function Contact() {
           <div className="flex flex-col items-center">
             <Button
               type="submit"
-              className="border border-white text-white hover:bg-[#dd73b5] px-40 py-7 rounded-xl text-lg"
+              className="border border-white text-white hover:bg-[#dd73b5] px-40 py-7 rounded-xl text-lg cursor-pointer"
             >
               Submit
             </Button>
