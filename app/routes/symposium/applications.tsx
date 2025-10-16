@@ -14,7 +14,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Applications() {
   return (
     <div>
-        <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">Applications</h1>
+        <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">Applications</h1>
         <img
             src={appImg}
             alt={"Applications Image"}

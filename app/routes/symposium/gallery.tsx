@@ -27,8 +27,8 @@ export default function SympGallery() {
   }, []);
 
   return (
-    <div className="p-6">
-      <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center mb-10">Symposium Gallery</h1>
+    <div className="">
+      <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center mb-10">Symposium Gallery</h1>
       {/* New gallery takes structured folder data */}
       <Gallery data={imagesByFolder} />
     </div>

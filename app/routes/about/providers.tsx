@@ -49,7 +49,7 @@ const thirdRowB: Member[] = [
 export default function Providers() {
   return (
     <div className="flex flex-col space-y-12 ">
-        <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">Our Providers</h1>
+        <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">Our Providers</h1>
         <p className = "text-[#075a77] text-center text-xl px-48"><i><strong>Please note</strong>: Provider availability at Monthly Clinics may vary. For more information on which providers
  will be available at the next clinic, visit our <Link className = "underline hover:text-[#dd73b5] transition-all duration-200" to="/services/schedule"><strong>Schedule/News</strong></Link> page.</i></p>
       {/* Top Row */}

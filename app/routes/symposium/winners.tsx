@@ -14,7 +14,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Winners() {
   return (
     <div>
-        <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">Past Winners</h1>
+        <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">Past Winners</h1>
         <h1 className="text-5xl text-[#4a97b2] mt-20 font-[Bebas_Neue] mx-32">2025</h1>
 
 

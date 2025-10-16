@@ -14,7 +14,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Partners() {
   return (
     <div>
-        <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">Our Partners</h1>
+        <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">Our Partners</h1>
         <img
             src={partnersImg}
             alt={"Partners"}
