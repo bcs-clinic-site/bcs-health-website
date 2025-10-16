@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import {useState, useEffect} from "react";
-import aboutImg from '../../images/symposium/About Symposium Banner.png'
+import { useState, useEffect } from "react";
+import aboutImg from "../../images/symposium/About Symposium Banner.png";
 import Gallery, { type DriveImage } from "../../components/gallery";
 import type { Route } from "../+types/home";
 
@@ -13,19 +13,24 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function SympGallery() {
-   const [images, setImages] = useState<DriveImage[]>([]);
+  // updated type: Record<string, DriveImage[]>
+  const [imagesByFolder, setImagesByFolder] = useState<Record<string, DriveImage[]>>({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/images?letter=A")
+    fetch("http://localhost:5000/images?type=outreach")
       .then((res) => res.json())
-      .then((data: DriveImage[]) => setImages(data))
+      .then((data: Record<string, DriveImage[]>) => {
+        console.log("✅ Loaded image data:", data);
+        setImagesByFolder(data);
+      })
       .catch((err) => console.error("Failed to load images:", err));
   }, []);
 
   return (
     <div className="p-6">
-      <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center pb-10">Threads of Knowledge 2025</h1>
-      <Gallery images={images} />
+      <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center mb-10">Symposium Gallery</h1>
+      {/* New gallery takes structured folder data */}
+      <Gallery data={imagesByFolder} />
     </div>
   );
 }
