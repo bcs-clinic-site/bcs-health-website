@@ -10,12 +10,12 @@ export default [
   { path: "about/reports", file: "routes/about/reports.tsx" },
 
   // Services pages
-  //{ path: "services/appointments", file: "routes/services/appointments.tsx" },
+  { path: "services/appointments", file: "routes/services/appointments.tsx" },
   { path: "services/bait-ul-naeem", file: "routes/services/bait-ul-naeem.tsx" },
   { path: "services/irshad", file: "routes/services/irshad.tsx" },
   { path: "services/immanah", file: "routes/services/immanah.tsx" },
-  //{ path: "services/schedule", file: "routes/services/schedule.tsx" },
-  //{ path: "services/feedback", file: "routes/services/feedback.tsx" },
+  { path: "services/schedule", file: "routes/services/schedule.tsx" },
+  { path: "services/feedback", file: "routes/services/feedback.tsx" },
 
   // Get Involved pages
   //{ path: "involved/volunteer", file: "routes/involved/volunteer.tsx" },
