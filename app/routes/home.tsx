@@ -68,27 +68,33 @@ export default function Home() {
       <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
         Held on the final Saturday of each month, the Monthly Clinic offers scheduled appointments for a range of primary health care needs.
       </div>
+      <a href = "/services/appointments" target = "_blank" rel="noopener noreferrer">
       <Button
         size="sm"
         variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center"
+        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
       >
         Learn More
       </Button>
+      </a>
     </div>
+    
+    
     <div className="w-1/4 p-[5px] flex flex-col items-center">
       <img src={chairs}  className="w-full" />
       <h1 className="text-5xl text-[#075a77] mt-24 text-center font-[Bebas_Neue]">Bait ul naeem</h1>
       <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
         A dedicated women & maternal health program designed to support our sisters through pregnancy and early motherhood.
       </div>
+      <a href = "/services/bait-ul-naeem" target = "_blank" rel = "noopener noreferrer">
       <Button
         size="sm"
         variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center"
+        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
       >
         Learn More
       </Button>
+      </a>
     </div>
     <div className="w-1/4 p-[5px] flex flex-col items-center">
       <img src={table}  className="w-full" />
@@ -96,13 +102,15 @@ export default function Home() {
       <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
         Customized nutritional counseling to help our community make informed dietary choices for better health.
       </div>
+      <a href = "/services/ishrad" target = "_blank" rel = "noopener noreferrer">
       <Button
         size="sm"
         variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center"
+        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
       >
         Learn More
       </Button>
+      </a>
     </div>
 
     <div className="w-1/4 p-[5px] flex flex-col items-center">
@@ -111,13 +119,15 @@ export default function Home() {
       <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
         More details coming on our new mental health program in October 2026, In’Sha Allah.
       </div>
+      <a href="#" target="_blank" rel="noopener noreferrer" className = "pointer-events-none opacity-50">
       <Button
         size="sm"
         variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center"
+        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
       >
         Coming soon...
       </Button>
+      </a>
     </div>
   </div>
 

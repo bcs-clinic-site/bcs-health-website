@@ -1,6 +1,14 @@
 import React from "react";
 import topPhoto from '../../images/services/monthly/Top Photo.png'
 import { Button } from "~/components/ui/button"
+import type { Route } from "../+types/home";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Appointments - BCS Free Health Clinic" },
+    { name: "description", content: "BCS Free Health Clinic" },
+  ];
+}
 
 const images = import.meta.glob('../../images/services/monthly/grid/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>;
 

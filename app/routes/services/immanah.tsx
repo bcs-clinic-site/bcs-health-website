@@ -1,4 +1,12 @@
 import React from "react";
+import type { Route } from "../+types/home";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Immanah - BCS Free Health Clinic" },
+    { name: "description", content: "BCS Free Health Clinic" },
+  ];
+}
 
 export default function Immanah() {
   return (

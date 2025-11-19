@@ -1,6 +1,14 @@
 import React from "react";
 import IrshadPost from "../../images/services/Irshad_Post.png";
 import IrshadLogo from "../../images/services/Irshad_Logo.png";
+import type { Route } from "../+types/home";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Ishrad Al-Aafiyah - BCS Free Health Clinic" },
+    { name: "description", content: "BCS Free Health Clinic" },
+  ];
+}
 
 export default function Irshad() {
   return (

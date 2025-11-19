@@ -18,10 +18,10 @@ export default [
   { path: "services/feedback", file: "routes/services/feedback.tsx" },
 
   // Get Involved pages
-  //{ path: "involved/volunteer", file: "routes/involved/volunteer.tsx" },
-  //{ path: "involved/donate", file: "routes/involved/donate.tsx" },
-  //{ path: "involved/outreach", file: "routes/involved/outreach.tsx" },
-  //{ path: "involved/education", file: "routes/involved/education.tsx" },
+  { path: "involved/volunteer", file: "routes/involved/volunteer.tsx" },
+  { path: "involved/donate", file: "routes/involved/donate.tsx" },
+  { path: "involved/outreach", file: "routes/involved/outreach.tsx" },
+  { path: "involved/education", file: "routes/involved/education.tsx" },
 
   // Symposium pages
   

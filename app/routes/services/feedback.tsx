@@ -1,6 +1,14 @@
 import React from "react";
 import qr from "../../images/services/Feedback Form QR Code.png"
 import { Button } from "~/components/ui/button"
+import type { Route } from "../+types/home";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Feedback - BCS Free Health Clinic" },
+    { name: "description", content: "BCS Free Health Clinic" },
+  ];
+}
 
 export default function Feedback() {
   return (

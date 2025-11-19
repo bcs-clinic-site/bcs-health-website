@@ -6,3 +6,5 @@
 /build/
 backend/.env
 .env
+*.PNG
+*.JPG

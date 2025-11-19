@@ -1,6 +1,14 @@
 import React from "react";
 import BaitLogo from "../../images/services/Bait_ul_Naeem_logo.png";
 import BaitFlyer from "../../images/services/Bait_ul-Naeem_Post.png";
+import type { Route } from "../+types/home";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Bait Ul Naeem - BCS Free Health Clinic" },
+    { name: "description", content: "BCS Free Health Clinic" },
+  ];
+}
 
 export default function BaitUlNaeem() {
   return (
