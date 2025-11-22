@@ -4,22 +4,20 @@ import { useState } from "react"
 import { Button } from "./ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { ChevronDown } from "lucide-react"
-import '../css/globals.css';
-import logo from '../images/home/Clinic Logo.png';
-import { Link, useLocation } from "react-router";
+import logo from "../images/home/Clinic Logo.png"
+import { Link, useLocation } from "react-router"
 
 export function Header() {
-  const location = useLocation();
+  const location = useLocation()
   const [activePage, setActivePage] = useState("Home")
   const [isAboutOpen, setIsAboutOpen] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false) 
-  const [isInvolvedOpen, setIsInvolvedOpen] = useState(false) 
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isInvolvedOpen, setIsInvolvedOpen] = useState(false)
   const [isSynopOpen, setIsSynopOpen] = useState(false)
 
-  // Updated to objects with .name and .path
   const aboutItems = [
     { name: "Our Team", path: "/about/team" },
-    { name: "Our Providers", path: "/about/providers"},
+    { name: "Our Providers", path: "/about/providers" },
     { name: "Our Partners", path: "/about/partners" },
     { name: "Reports", path: "/about/reports" },
   ]
@@ -46,16 +44,16 @@ export function Header() {
     { name: "Gallery", path: "/symposium/gallery" },
   ]
 
-  const isActive = (page: string, isDropdown = false): string => 
+  const isActive = (page: string, isDropdown = false): string =>
     location.pathname === page ? "text-[#dd73b5]" : isDropdown ? "text-primary" : "text-white"
 
-  const isCategoryActive = (items: { name: string; path: string }[]): boolean => 
-    items.some(item => location.pathname === item.path)
+  const isCategoryActive = (items: { name: string; path: string }[]): boolean =>
+    items.some((item) => location.pathname === item.path)
 
   return (
     <header className="w-full sticky top-0 z-50 bg-black">
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+        {`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');`}
       </style>
 
       {/* Emergency Banner */}
@@ -70,7 +68,7 @@ export function Header() {
             {/* Logo */}
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <img src={logo} alt="Main" className="w-auto h-auto" />
+                <img src={logo || "/placeholder.svg"} alt="Main" className="w-auto h-auto" />
               </div>
               <div>
                 <h1 className="text-3xl font-[Bebas_Neue] text-white">BCS FREE HEALTH CLINIC</h1>
@@ -80,11 +78,11 @@ export function Header() {
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {/* Home */}
-              <Button
-                variant="ghost"
-                className={`${isActive("/")} hover:bg-[#dd73b5] cursor-pointer`}
-              >
-                <Link to="/">Home</Link>
+
+              <Button variant="ghost" className = "hover:bg-[#dd73b5]" asChild>
+                <Link to="/" className={`${isActive("/")} hover:bg-[#dd73b5] cursor-pointer`}>
+                  Home
+                </Link>
               </Button>
 
               {/* About Us */}
@@ -99,7 +97,7 @@ export function Header() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {aboutItems.map(item => (
+                  {aboutItems.map((item) => (
                     <DropdownMenuItem asChild key={item.name} onClick={() => setIsAboutOpen(false)}>
                       <Link
                         to={item.path}
@@ -124,7 +122,7 @@ export function Header() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {servicesItems.map(item => (
+                  {servicesItems.map((item) => (
                     <DropdownMenuItem asChild key={item.name} onClick={() => setIsServicesOpen(false)}>
                       <Link
                         to={item.path}
@@ -149,7 +147,7 @@ export function Header() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {involvedItems.map(item => (
+                  {involvedItems.map((item) => (
                     <DropdownMenuItem asChild key={item.name} onClick={() => setIsInvolvedOpen(false)}>
                       <Link
                         to={item.path}
@@ -174,7 +172,7 @@ export function Header() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {synopItems.map(item => (
+                  {synopItems.map((item) => (
                     <DropdownMenuItem asChild key={item.name} onClick={() => setIsSynopOpen(false)}>
                       <Link
                         to={item.path}
@@ -188,10 +186,7 @@ export function Header() {
               </DropdownMenu>
 
               {/* Contact Us */}
-              <Button
-                variant="ghost"
-                className={`${isActive("/contact")} hover:bg-[#dd73b5] cursor-pointer`}
-              >
+              <Button variant="ghost" className={`${isActive("/contact")} hover:bg-[#dd73b5] cursor-pointer`}>
                 <Link to="/contact">Contact Us</Link>
               </Button>
             </nav>

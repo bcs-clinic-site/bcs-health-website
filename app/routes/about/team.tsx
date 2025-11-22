@@ -1,4 +1,4 @@
-  "use client"
+"use client"
 
   import React from "react";
   import Heirarchy from '../../images/about/team/Heirarchy Chart Picture.png'
