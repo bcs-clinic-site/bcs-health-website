@@ -7,8 +7,8 @@ import myImg from '../images/home/Top Graphic.png'
 import logo from '../images/home/Clinic Logo.png';
 import QuoteCarousel from "~/components/quotes";
 
-import welcomeImg from '../images/home/IMG_1128.jpg'
-import chairs from '../images/home/IMG_1185.jpg'
+import welcomeImg from '../images/home/IMG_1128.JPG'
+import chairs from '../images/home/IMG_1185.JPG'
 import table from '../images/home/IMG_9856.jpg'
 import volunteering from '../images/home/IMG_9867.jpg'
 
