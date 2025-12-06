@@ -55,7 +55,7 @@ export default function getPictures(
         const numA = aMatch ? parseInt(aMatch[1], 10) : 0;
         const numB = bMatch ? parseInt(bMatch[1], 10) : 0;
 
-        return numB - numA;
+        return numA - numB;
       })
       .forEach((folder) => {
         sorted[folder] = categorized[folder];
