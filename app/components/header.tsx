@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "./ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { ChevronDown } from "lucide-react"
@@ -15,6 +15,7 @@ export function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false) 
   const [isInvolvedOpen, setIsInvolvedOpen] = useState(false) 
   const [isSynopOpen, setIsSynopOpen] = useState(false)
+  const [dateText, setDateText] = useState("");
 
   // Updated to objects with .name and .path
   const aboutItems = [
@@ -52,6 +53,13 @@ export function Header() {
   const isCategoryActive = (items: { name: string; path: string }[]): boolean => 
     items.some(item => location.pathname === item.path)
 
+  
+  useEffect(() => {
+    fetch("/! Editable Content/clinic_date.txt")
+      .then((res) => res.text())
+      .then((text) => setDateText(text));
+  }, []);
+
   return (
     <header className="w-full sticky top-0 z-50 bg-black">
       <style>
@@ -59,9 +67,13 @@ export function Header() {
       </style>
 
       {/* Emergency Banner */}
-      <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-sm">
-        If you are experiencing a medical emergency, please contact 911. Our next clinic will be on September 27, 2025.
+      <div className="bg-primary text-primary-foreground py-2 px-4 text-center text-sm ">
+        <span className={`${dateText ? "opacity-100" : "opacity-0"} transition-opacity duration-300`}>
+          If you are experiencing a medical emergency, please contact 911.
+          Our next clinic will be on {dateText}.
+        </span>
       </div>
+
 
       {/* Main Header */}
       <div className="bg-primary/75 shadow-sm">

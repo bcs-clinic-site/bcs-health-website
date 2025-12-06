@@ -27,17 +27,21 @@ export default function Home() {
 
   {/* Button container overlay */}
   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 flex flex-nowrap justify-center gap-4 font-[Arial_MT_Pro]">
+    <a href = "/contact" rel = "noopener noreferrer">
     <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
       Contact Us
     </Button>
+    </a>
     <a href = "https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target = "_blank" rel = "noopener noreferrer">
       <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
         Book An Appointment
       </Button>
     </a>
-    <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
-      Volunteer
-    </Button>
+    <a href = "/involved/volunteer" rel = "noopener noreferrer">
+      <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
+        Volunteer
+      </Button>
+    </a>
     <a href = "https://www.paypal.com/donate/?hosted_button_id=F3K522QF32P5L" target = "_blank" rel="noopener noreferrer">
       <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
         Donate
@@ -102,7 +106,7 @@ export default function Home() {
       <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
         Customized nutritional counseling to help our community make informed dietary choices for better health.
       </div>
-      <a href = "/services/ishrad" target = "_blank" rel = "noopener noreferrer">
+      <a href = "/services/irshad" target = "_blank" rel = "noopener noreferrer">
       <Button
         size="sm"
         variant="secondary"

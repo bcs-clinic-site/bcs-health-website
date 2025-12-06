@@ -49,7 +49,7 @@ export default function BaitUlNaeem() {
           {/* HOW TO APPLY section */}
           <div className="mb-6 w-full">
             <div className="flex flex-nowrap items-center justify-between gap-4 mb-4 w-full">
-              <h2 className="text-[26px] lg:text-[28px] font-extrabold text-gray-900 uppercase tracking-wide leading-tight">
+              <h2 className="font-[Bebas_Neue] text-5xl text-gray-900 uppercase tracking-wide leading-tight">
                 How to Apply
               </h2>
               <a
@@ -80,14 +80,14 @@ export default function BaitUlNaeem() {
 
       {/* Collaborations and Partners */}
       <section className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-normal text-[#1a3a52] uppercase text-center mb-12">
+        <h2 className="font-[Bebas_Neue] text-5xl tracking-normal text-[#1a3a52] uppercase text-center mb-12">
           Collaborations and Partners
         </h2>
 
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 text-base leading-relaxed text-black">
           {/* NFP */}
           <article>
-            <h3 className="text-xl font-bold uppercase mb-3 text-[#5b9abd]">
+            <h3 className="font-[Bebas_Neue] text-4xl uppercase mb-3 text-[#5b9abd]">
               Nurse-Family Partnership (NFP)
             </h3>
             <p className="mb-4">
@@ -120,7 +120,7 @@ export default function BaitUlNaeem() {
 
           {/* HIPPY */}
           <article>
-            <h3 className="text-xl font-bold uppercase mb-3 text-[#5b9abd]">
+            <h3 className="font-[Bebas_Neue] text-4xl uppercase mb-3 text-[#5b9abd]">
               HIPPY Program (Home Instruction for Parents of Preschool
               Youngsters)
             </h3>
@@ -150,7 +150,7 @@ export default function BaitUlNaeem() {
 
           {/* The Rose Mammogram Program */}
           <article>
-            <h3 className="text-xl font-bold uppercase mb-3 text-[#5b9abd]">
+            <h3 className="font-[Bebas_Neue] text-4xl uppercase mb-3 text-[#5b9abd]">
               The Rose Mammogram Program
             </h3>
             <p className="mb-4">
@@ -168,7 +168,7 @@ export default function BaitUlNaeem() {
 
           {/* Brenham Pregnancy Center */}
           <article>
-            <h3 className="text-xl font-bold uppercase mb-3 text-[#5b9abd]">
+            <h3 className="font-[Bebas_Neue] text-4xl uppercase mb-3 text-[#5b9abd]">
               Brenham Pregnancy Center — Bryan Location
             </h3>
             <p className="mb-4">
@@ -185,7 +185,7 @@ export default function BaitUlNaeem() {
 
           {/* ECI */}
           <article className="md:col-span-2">
-            <h3 className="text-xl font-bold uppercase mb-3 text-[#5b9abd]">
+            <h3 className="font-[Bebas_Neue] text-4xl uppercase mb-3 text-[#5b9abd]">
               Early Childhood Intervention (ECI)
             </h3>
             <p className="mb-4">

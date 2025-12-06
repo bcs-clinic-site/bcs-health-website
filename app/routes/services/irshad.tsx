@@ -43,7 +43,7 @@ export default function Irshad() {
             promote long-term wellness, insha’Allah.
           </p>
 
-          <h2 className="text-[30px] font-extrabold mb-4 text-gray-900 uppercase tracking-wide">
+          <h2 className="font-[Bebas_Neue] text-4xl mb-4 text-gray-900 uppercase tracking-wide">
             Appointments
           </h2>
           <ul className="list-disc ml-6 space-y-2 text-[21px]">

@@ -1,10 +1,12 @@
-"use client"
+"use client";
 
 import React from "react";
-import Heirarchy from '../../images/about/team/Heirarchy Chart Picture.png'
+import Heirarchy from '../../images/about/team/Heirarchy Chart Picture.png';
 import type { Route } from "../+types/home";
+import Lightbox from "../../components/lightbox"; // adjust path if needed
 import { Link } from "react-router";
 
+// Metadata
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Providers - BCS Free Health Clinic" },
@@ -40,20 +42,47 @@ const secondRow: Member[] = [
 ];
 
 const thirdRowA: Member[] = [
-    {filename: "Website Redesign (9).png", name: "Dr. Fariha Irshad", title: "Nutritionist and Food Scientist"}
-]
+  { filename: "Website Redesign (9).png", name: "Dr. Fariha Irshad", title: "Nutritionist and Food Scientist" }
+];
 
 const thirdRowB: Member[] = [
-    { filename: "unknown.jpg", name: "Dr. Maryam Ahmed", title: "To be revealed..." }
-]
-export default function Providers() {
-  return (
-    <div className="flex flex-col space-y-12 ">
-        <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">Our Providers</h1>
-        <p className = "text-[#075a77] text-center text-xl px-48"><i><strong>Please note</strong>: Provider availability at Monthly Clinics may vary. For more information on which providers
- will be available at the next clinic, visit our <Link className = "underline hover:text-[#dd73b5] transition-all duration-200" to="/services/schedule"><strong>Schedule/News</strong></Link> page.</i></p>
-      {/* Top Row */}
+  { filename: "unknown.jpg", name: "Dr. Maryam Ahmed", title: "To be revealed..." }
+];
 
+export default function Providers() {
+  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
+
+  // Build a master image list for the lightbox
+  const allImages = [
+    ...topRow.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name })),
+    ...secondRow.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name })),
+    ...thirdRowA.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name })),
+    ...thirdRowB.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name }))
+  ];
+
+  return (
+    <div className="flex flex-col space-y-12">
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={allImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(newIndex) => setLightboxIndex(newIndex)}
+        />
+      )}
+
+      <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">Our Providers</h1>
+      <p className="text-[#075a77] text-center text-xl px-48">
+        <i>
+          <strong>Please note</strong>: Provider availability at Monthly Clinics may vary. For more information on which providers will be available at the next clinic, visit our{" "}
+          <Link className="underline hover:text-[#dd73b5] transition-all duration-200" to="/services/schedule">
+            <strong>Schedule/News</strong>
+          </Link> page.
+        </i>
+      </p>
+
+      {/* Monthly Clinics - Top Row */}
       <h1 className="text-5xl text-[#4a97b2] mt-4 mx-32 font-[Bebas_Neue] text-center">Monthly Clinics</h1>
       <div className="flex justify-center gap-20">
         {topRow.map((member, i) => (
@@ -61,8 +90,11 @@ export default function Providers() {
             <img
               src={imageMap[member.filename] ?? ""}
               alt={member.name}
-              className="w-40 h-40 object-cover"
-              
+              className="w-40 h-40 object-cover cursor-pointer"
+              onClick={() => {
+                const index = allImages.findIndex(img => img.id === member.filename);
+                setLightboxIndex(index);
+              }}
             />
             <div className="mt-2 font-[Bebas_Neue] text-primary text-2xl">{member.name}</div>
             <div className="text-sm text-[#075a77] max-w-48 text-center">{member.title}</div>
@@ -70,73 +102,72 @@ export default function Providers() {
         ))}
       </div>
 
+      {/* Bait Ul Naeem - Bottom Row */}
       <h1 className="text-5xl text-[#4a97b2] mt-4 mx-32 font-[Bebas_Neue] text-center">Bait Ul Naeem: House of Ease</h1>
-      {/* Bottom Row */}
-    <div className="flex justify-center gap-21">
+      <div className="flex justify-center gap-21">
         {secondRow.map((member, i) => (
           <div key={i} className="flex flex-col items-center">
             <img
               src={imageMap[member.filename] ?? ""}
               alt={member.name}
-              className="w-40 h-40 object-cover"
-              
+              className="w-40 h-40 object-cover cursor-pointer"
+              onClick={() => {
+                const index = allImages.findIndex(img => img.id === member.filename);
+                setLightboxIndex(index);
+              }}
             />
             <div className="mt-2 font-[Bebas_Neue] text-primary text-2xl">{member.name}</div>
             <div className="text-sm text-[#075a77] max-w-48 text-center">{member.title}</div>
           </div>
         ))}
-    </div>
+      </div>
 
-    <div className="flex justify-center gap-32">
-  {/* Group 1 */}
-  <div className="flex flex-col items-center">
-    <h1 className="text-5xl text-[#4a97b2] mt-4 mb-6 font-[Bebas_Neue] text-center">
-      Irshad Al-aafiyah
-    </h1>
-    <div className="flex gap-8 flex-wrap justify-center">
-      {thirdRowA.map((member, i) => (
-        <div key={i} className="flex flex-col items-center">
-          <img
-            src={imageMap[member.filename] ?? ""}
-            alt={member.name}
-            className="w-40 h-40 object-cover"
-          />
-          <div className="mt-2 font-[Bebas_Neue] text-primary text-2xl">
-            {member.name}
-          </div>
-          <div className="text-sm text-[#075a77] max-w-48 text-center">
-            {member.title}
+      {/* Third Row */}
+      <div className="flex justify-center gap-32">
+        {/* Group 1 */}
+        <div className="flex flex-col items-center">
+          <h1 className="text-5xl text-[#4a97b2] mt-4 mb-6 font-[Bebas_Neue] text-center">Irshad Al-aafiyah</h1>
+          <div className="flex gap-8 flex-wrap justify-center">
+            {thirdRowA.map((member, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <img
+                  src={imageMap[member.filename] ?? ""}
+                  alt={member.name}
+                  className="w-40 h-40 object-cover cursor-pointer"
+                  onClick={() => {
+                    const index = allImages.findIndex(img => img.id === member.filename);
+                    setLightboxIndex(index);
+                  }}
+                />
+                <div className="mt-2 font-[Bebas_Neue] text-primary text-2xl">{member.name}</div>
+                <div className="text-sm text-[#075a77] max-w-48 text-center">{member.title}</div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
 
-  {/* Group 2 */}
-  <div className="flex flex-col items-center">
-    <h1 className="text-5xl text-[#4a97b2] mt-4 mb-6 font-[Bebas_Neue] text-center">
-      Immanah
-    </h1>
-    <div className="flex gap-8 flex-wrap justify-center">
-      {thirdRowB.map((member, i) => (
-        <div key={i} className="flex flex-col items-center">
-          <img
-            src={imageMap[member.filename] ?? ""}
-            alt={member.name}
-            className="w-40 h-40 object-cover"
-          />
-          <div className="mt-2 font-[Bebas_Neue] text-primary text-2xl">
-            {member.name}
-          </div>
-          <div className="text-sm text-[#075a77] max-w-48 text-center">
-            {member.title}
+        {/* Group 2 */}
+        <div className="flex flex-col items-center">
+          <h1 className="text-5xl text-[#4a97b2] mt-4 mb-6 font-[Bebas_Neue] text-center">Immanah</h1>
+          <div className="flex gap-8 flex-wrap justify-center">
+            {thirdRowB.map((member, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <img
+                  src={imageMap[member.filename] ?? ""}
+                  alt={member.name}
+                  className="w-40 h-40 object-cover cursor-pointer"
+                  onClick={() => {
+                    const index = allImages.findIndex(img => img.id === member.filename);
+                    setLightboxIndex(index);
+                  }}
+                />
+                <div className="mt-2 font-[Bebas_Neue] text-primary text-2xl">{member.name}</div>
+                <div className="text-sm text-[#075a77] max-w-48 text-center">{member.title}</div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
-
+      </div>
     </div>
   );
 }
