@@ -77,7 +77,7 @@ export default function Appointments() {
           </li>
         </ul>
         <br />
-        For any concerns or to cancel an appointment, please text (469)-988-3494.
+        For any concerns or to cancel an appointment, please text (979)-481-8881.
         <div className="flex justify-center pt-12">
           <a href="https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target="_blank" rel="noopener noreferrer">
             <Button size="lg" variant="secondary" className="text-lg px-40 py-7 w-56 bg-primary text-white rounded-lg hover:bg-[#dd73b5] transition-all duration-200 cursor-pointer">
