@@ -90,7 +90,7 @@ export default function Providers() {
             <img
               src={imageMap[member.filename] ?? ""}
               alt={member.name}
-              className="w-40 h-40 object-cover cursor-pointer"
+              className="w-40 h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
               onClick={() => {
                 const index = allImages.findIndex(img => img.id === member.filename);
                 setLightboxIndex(index);
@@ -110,7 +110,7 @@ export default function Providers() {
             <img
               src={imageMap[member.filename] ?? ""}
               alt={member.name}
-              className="w-40 h-40 object-cover cursor-pointer"
+              className="w-40 h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
               onClick={() => {
                 const index = allImages.findIndex(img => img.id === member.filename);
                 setLightboxIndex(index);
@@ -133,7 +133,7 @@ export default function Providers() {
                 <img
                   src={imageMap[member.filename] ?? ""}
                   alt={member.name}
-                  className="w-40 h-40 object-cover cursor-pointer"
+                  className="w-40 h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
                   onClick={() => {
                     const index = allImages.findIndex(img => img.id === member.filename);
                     setLightboxIndex(index);
@@ -155,7 +155,7 @@ export default function Providers() {
                 <img
                   src={imageMap[member.filename] ?? ""}
                   alt={member.name}
-                  className="w-40 h-40 object-cover cursor-pointer"
+                  className="w-40 h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
                   onClick={() => {
                     const index = allImages.findIndex(img => img.id === member.filename);
                     setLightboxIndex(index);

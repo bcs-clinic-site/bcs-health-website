@@ -93,7 +93,7 @@ export default function Appointments() {
             <img
               src={img.url}
               alt={img.name}
-              className="rounded-lg shadow-md object-cover w-full h-64"
+              className="rounded-lg shadow-md object-cover w-full h-64 transform transition-transform duration-300 hover:scale-105"
               onClick={() => setLightboxIndex(i)}
             />
             <figcaption className="text-center text-primary text-md mt-2">

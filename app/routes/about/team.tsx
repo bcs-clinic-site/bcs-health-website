@@ -90,7 +90,7 @@ export default function Team() {
             <img
               src={imageMap[member.filename] ?? ""}
               alt={member.name}
-              className="w-32 h-32 object-cover cursor-pointer"
+              className="w-32 h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
               onClick={() => {
                 const index = allImages.findIndex(img => img.id === member.filename);
                 setLightboxIndex(index);
@@ -112,7 +112,7 @@ export default function Team() {
                   key={i}
                   src={imageMap[filename] ?? ""}
                   alt={group.names[i]}
-                  className="w-32 h-32 object-cover cursor-pointer"
+                  className="w-32 h-32 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
                   onClick={() => {
                     const index = allImages.findIndex(img => img.id === filename);
                     setLightboxIndex(index);
@@ -136,7 +136,7 @@ export default function Team() {
         <img
           src={Heirarchy}
           alt="Heirarchy"
-          className="object-cover scale-[0.95] cursor-pointer"
+          className="object-cover scale-[0.95] cursor-pointer transform transition-transform duration-300 hover:scale-100"
           onClick={() => {
             const index = allImages.findIndex(img => img.id === "Heirarchy");
             setLightboxIndex(index);
