@@ -24,7 +24,7 @@ export default function Donate() {
 
   return (
     <div>
-      <h1 className="text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">
         Donations
       </h1>
 

@@ -91,7 +91,7 @@ const reports: Report[] = [
 export default function Reports() {
   return (
     <div className="flex flex-col items-center space-y-16 mt-12">
-      <h1 className="text-6xl text-primary font-[Bebas_Neue] text-center">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary font-[Bebas_Neue] text-center">
         Our Reports
       </h1>
 

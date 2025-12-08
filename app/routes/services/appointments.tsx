@@ -46,7 +46,7 @@ export default function Appointments() {
         />
       )}
 
-      <h1 className="text-6xl text-primary mb-16 mx-32 font-[Bebas_Neue] text-center">Monthly Clinic Registration</h1>
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mb-16 mx-32 font-[Bebas_Neue] text-center">Monthly Clinic Registration</h1>
 
       <img
         src={topPhoto}
@@ -59,7 +59,7 @@ export default function Appointments() {
         }}
       />
 
-      <p className="mx-48 mt-4 text-primary text-lg max-w-7xl">
+      <p className="mx-4 sm:mx-12 md:mx-24 lg:mx-46 mt-4 text-primary text-lg max-w-7xl">
         At BCS Free Health Clinic, we make it easy for you to receive the quality care you deserve from our compassionate and highly qualified doctors. Appointments must be scheduled online to see our physicians and specialists.
         <br /><br />
         <strong>Important Appointment Details:</strong>

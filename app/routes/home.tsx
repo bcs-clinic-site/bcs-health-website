@@ -1,3 +1,6 @@
+// ============================================
+// home.tsx
+// ============================================
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
 import { Header } from "~/components/header";
@@ -23,162 +26,168 @@ export default function Home() {
   return <div>
 
     <div className="relative w-full">
-  <img src={myImg} alt="Main" className="w-full h-auto" />
+      <img src={myImg} alt="Main" className="w-full h-auto" />
 
-  {/* Button container overlay */}
-  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 flex flex-nowrap justify-center gap-4 font-[Arial_MT_Pro]">
-    <a href = "/contact" rel = "noopener noreferrer">
-    <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
-      Contact Us
-    </Button>
-    </a>
-    <a href = "https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target = "_blank" rel = "noopener noreferrer">
-      <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
-        Book An Appointment
-      </Button>
-    </a>
-    <a href = "/involved/volunteer" rel = "noopener noreferrer">
-      <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
-        Volunteer
-      </Button>
-    </a>
-    <a href = "https://www.paypal.com/donate/?hosted_button_id=F3K522QF32P5L" target = "_blank" rel="noopener noreferrer">
-      <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-52 h-24 text-lg cursor-pointer">
-        Donate
-      </Button>
-    </a>
-
-    
-  </div>
-  
-</div>
-<div id = "About">
-  <h1 className="text-5xl text-primary mt-48 mx-36 font-[Bebas_Neue]">About BCS FHC</h1>
-  <div className="mt-8 mx-12 mb-24 text-[1.7rem] font-[Arial_MT_Pro] text-primary pl-24 pr-24">
-    <p>Our mission at the <strong>Bryan-College Station Free Health Clinic</strong> is to embody the values of compassion, generosity, and service exemplified in Islamic teachings. We recognize our free clinic as a form of charity (sadaqah) and view it as a manifestation of this principle.
-    <br /><br />
-    We aim to promote <strong>health equity</strong> and <strong>dignity for all</strong>, regardless of background or circumstances. We seek to foster understanding, empathy, and solidarity within the BCS community creating a healthier and more inclusive society for generations to come.
-    <br /><br />
-    We strive to provide holistic healthcare services integrated with social support programs, thereby fulfilling the <strong>prophetic tradition of caring for the sick and needy.</strong></p>
-  </div>
-</div>
-
-<div id="Services">
-  <h1 className="text-5xl text-primary mt-24 mx-36 font-[Bebas_Neue]">Our Services</h1>
-  <div className="flex mx-18 mt-8 pl-16 pr-16 items-stretch">
-    <div className="w-1/4 p-[5px] flex flex-col items-center">
-      <img src={welcomeImg}  className="w-full" />
-      <h1 className="text-5xl text-[#075a77] mt-24 text-center font-[Bebas_Neue]">Monthly Clinics</h1>
-      <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
-        Held on the final Saturday of each month, the Monthly Clinic offers scheduled appointments for a range of primary health care needs.
+      {/* Button container overlay */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 flex flex-row flex-wrap md:flex-nowrap justify-center gap-2 md:gap-4 font-[Arial_MT_Pro] px-4 md:px-0 w-full md:w-auto max-w-md md:max-w-none">
+        <a href="/contact" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Contact Us
+          </Button>
+        </a>
+        <a href="https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Book An Appointment
+          </Button>
+        </a>
+        <a href="/involved/volunteer" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Volunteer
+          </Button>
+        </a>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=F3K522QF32P5L" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Donate
+          </Button>
+        </a>
       </div>
-      <a href = "/services/appointments" target = "_blank" rel="noopener noreferrer">
-      <Button
-        size="sm"
-        variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
-      >
-        Learn More
-      </Button>
-      </a>
-    </div>
-    
-    
-    <div className="w-1/4 p-[5px] flex flex-col items-center">
-      <img src={chairs}  className="w-full" />
-      <h1 className="text-5xl text-[#075a77] mt-24 text-center font-[Bebas_Neue]">Bait ul naeem</h1>
-      <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
-        A dedicated women & maternal health program designed to support our sisters through pregnancy and early motherhood.
-      </div>
-      <a href = "/services/bait-ul-naeem" target = "_blank" rel = "noopener noreferrer">
-      <Button
-        size="sm"
-        variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
-      >
-        Learn More
-      </Button>
-      </a>
-    </div>
-    <div className="w-1/4 p-[5px] flex flex-col items-center">
-      <img src={table}  className="w-full" />
-      <h1 className="text-5xl text-[#075a77] mt-24 text-center font-[Bebas_Neue]">irshad al aafiyah</h1>
-      <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
-        Customized nutritional counseling to help our community make informed dietary choices for better health.
-      </div>
-      <a href = "/services/irshad" target = "_blank" rel = "noopener noreferrer">
-      <Button
-        size="sm"
-        variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
-      >
-        Learn More
-      </Button>
-      </a>
     </div>
 
-    <div className="w-1/4 p-[5px] flex flex-col items-center">
-      <img src={volunteering}  className="w-full" />
-      <h1 className="text-5xl text-[#075a77] mt-24 text-center font-[Bebas_Neue]">Immanah</h1>
-      <div className="mt-8 ml-8 mr-8 text-4 font-[Arial_MT_Pro] text-primary text-center flex-1">
-        More details coming on our new mental health program in October 2026, In’Sha Allah.
+    <div id="About">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-24 sm:mt-24 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue]">
+        About BCS FHC
+      </h1>
+      <div className="mt-6 sm:mt-8 mx-4 sm:mx-8 md:mx-12 lg:mx-24 mb-16 sm:mb-24 text-base sm:text-lg md:text-xl lg:text-[1.7rem] font-[Arial_MT_Pro] text-primary px-4 sm:px-8 md:px-12 lg:px-24">
+        <p>Our mission at the <strong>Bryan-College Station Free Health Clinic</strong> is to embody the values of compassion, generosity, and service exemplified in Islamic teachings. We recognize our free clinic as a form of charity (sadaqah) and view it as a manifestation of this principle.
+        <br /><br />
+        We aim to promote <strong>health equity</strong> and <strong>dignity for all</strong>, regardless of background or circumstances. We seek to foster understanding, empathy, and solidarity within the BCS community creating a healthier and more inclusive society for generations to come.
+        <br /><br />
+        We strive to provide holistic healthcare services integrated with social support programs, thereby fulfilling the <strong>prophetic tradition of caring for the sick and needy.</strong></p>
       </div>
-      <a href="#" target="_blank" rel="noopener noreferrer" className = "pointer-events-none opacity-50">
-      <Button
-        size="sm"
-        variant="secondary"
-        className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-64 h-12 text-sm justify-center cursor-pointer"
-      >
-        Coming soon...
-      </Button>
-      </a>
+    </div>
+
+    <div id="Services">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-16 sm:mt-20 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue]">
+        Our Services
+      </h1>
+      <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 mx-2 sm:mx-4 md:mx-8 lg:mx-18 mt-8 gap-4 sm:gap-3 md:gap-2 px-2 sm:px-4 md:px-8 lg:px-16">
+        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
+          <img src={welcomeImg} alt="Monthly Clinics" className="w-full" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+            Monthly Clinics
+          </h1>
+          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+            Held on the final Saturday of each month, the Monthly Clinic offers scheduled appointments for a range of primary health care needs.
+          </div>
+          <a href="/services/appointments" rel="noopener noreferrer">
+            <Button
+              size="sm"
+              variant="secondary"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+            >
+              Learn More
+            </Button>
+          </a>
+        </div>
+        
+        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
+          <img src={chairs} alt="Bait ul Naeem" className="w-full" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+            Bait ul naeem
+          </h1>
+          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+            A dedicated women & maternal health program designed to support our sisters through pregnancy and early motherhood.
+          </div>
+          <a href="/services/bait-ul-naeem" rel="noopener noreferrer">
+            <Button
+              size="sm"
+              variant="secondary"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+            >
+              Learn More
+            </Button>
+          </a>
+        </div>
+
+        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
+          <img src={table} alt="Irshad Al Aafiyah" className="w-full" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+            irshad al aafiyah
+          </h1>
+          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+            Customized nutritional counseling to help our community make informed dietary choices for better health.
+          </div>
+          <a href="/services/irshad" rel="noopener noreferrer">
+            <Button
+              size="sm"
+              variant="secondary"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+            >
+              Learn More
+            </Button>
+          </a>
+        </div>
+
+        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
+          <img src={volunteering} alt="Immanah" className="w-full" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+            Immanah
+          </h1>
+          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+            More details coming on our new mental health program in October 2026, In'Sha Allah.
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer" className="pointer-events-none opacity-50">
+            <Button
+              size="sm"
+              variant="secondary"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+            >
+              Coming soon...
+            </Button>
+          </a>
+        </div>
+      </div>
+
+      <QuoteCarousel />
+
+      <div id="review">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-16 sm:mt-20 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue] text-center">
+          Want to leave us a review?
+        </h1>
+        <div className="mt-6 sm:mt-8 mx-4 sm:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center">
+          Use any of the three buttons below to leave a personal review, Google Review, or Yelp Review! Any feedback would be greatly appreciated!
+          <br />
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9W3QBPBOrKzf_HFPVtY4skczE0fAuWUxuCpSOQLzIjaAfZQ/viewform" target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-full sm:w-auto sm:min-w-[32rem] h-16 sm:h-20 text-sm sm:text-lg pt-1 justify-center rounded-4xl cursor-pointer"
+            >
+              Access our Feedback Form Here
+            </Button>
+          </a>
+          <br />
+          <a href="https://g.page/r/CRBpGPgmdW1HEBM/review" target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-full sm:w-auto sm:min-w-[32rem] h-16 sm:h-20 text-sm sm:text-lg pt-1 justify-center rounded-4xl cursor-pointer"
+            >
+              Access our Google Reviews Here
+            </Button>
+          </a>
+          <br />
+          <a href="https://www.yelp.com/biz/bryan-college-station-free-health-clinic-college-station" target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-full sm:w-auto sm:min-w-[32rem] h-16 sm:h-20 text-sm sm:text-lg pt-1 justify-center rounded-4xl cursor-pointer"
+            >
+              Access our Yelp Here
+            </Button>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-
-  <QuoteCarousel />
-
-  <div id = "review">
-    <h1 className="text-5xl text-primary mt-24 mx-36 font-[Bebas_Neue] text-center">Want to leave us a review?</h1>
-    <div className="mt-8 ml-8 mr-8 text-16 font-[Arial_MT_Pro] text-primary text-center">
-        Use any of the three buttons below to leave a personal review, Google Review, or Yelp Review! Any feedback would be greatly appreciated!
-    <br />
-    <a href = "https://docs.google.com/forms/d/e/1FAIpQLSe9W3QBPBOrKzf_HFPVtY4skczE0fAuWUxuCpSOQLzIjaAfZQ/viewform" target = "_blank" rel="noopener noreferrer">
-      <Button
-          size="lg"
-          variant="secondary"
-          className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl cursor-pointer"
-        >
-          Access our Feedback Form Here
-      </Button>
-    </a>
-    <br />
-    <a href = "https://g.page/r/CRBpGPgmdW1HEBM/review" target = "_blank" rel="noopener noreferrer">
-      <Button
-          size="lg"
-          variant="secondary"
-          className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl cursor-pointer"
-        >
-          Access our Google Reviews Here
-      </Button>
-    </a>
-    <br />
-    <a href = "https://www.yelp.com/biz/bryan-college-station-free-health-clinic-college-station" target = "_blank" rel="noopener noreferrer">
-      <Button
-          size="lg"
-          variant="secondary"
-          className="mt-6 bg-primary text-white hover:bg-[#dd73b5] w-128 h-20 text-lg pt-1 justify-center rounded-4xl cursor-pointer"
-        >
-          Access our Yelp Here
-      </Button>
-    </a>
-    </div>
-    
-
-
-      
-  </div>
-</div>
-</div>
-
-
 }

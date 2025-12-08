@@ -98,7 +98,7 @@ export default function Contact() {
     },
     {
       question:
-        "Do I need insurance for your clinic? What do I do if I don’t have insurance?",
+        "Do I need insurance for your clinic? What do I do if I don't have insurance?",
       answer:
         "You do not need insurance to be seen at our clinic. Our clinic accepts all patients regardless of whether they are insured or uninsured!",
     },
@@ -153,21 +153,21 @@ export default function Contact() {
   }
 
   return (
-    <div>
-      <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">
+    <div className="px-4 md:px-8 pb-12">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-8 md:mt-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
         Want To Contact Us?
       </h1>
 
-      <p className="text-primary text-center mt-8 text-lg">
+      <p className="text-primary text-center mt-6 md:mt-8 text-base sm:text-lg px-4">
         Email us at admin@bcs.org or fill out the form below. We will be in
         touch with you as soon as possible!
       </p>
 
       {/* Contact Form */}
-      <div className="flex justify-center items-center bg-transparent">
+      <div className="flex justify-center items-center bg-transparent mt-6 md:mt-8">
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 w-full max-w-xl text-center"
+          className="space-y-4 w-full max-w-xl text-center px-4"
         >
           <div>
             <label
@@ -235,7 +235,7 @@ export default function Contact() {
           <div className="flex flex-col items-center">
             <Button
               type="submit"
-              className="border border-white text-white hover:bg-[#dd73b5] px-40 py-7 rounded-xl text-lg cursor-pointer"
+              className="border border-white text-white hover:bg-[#dd73b5] w-full sm:w-auto px-12 sm:px-40 py-6 sm:py-7 rounded-xl text-base sm:text-lg cursor-pointer"
             >
               Submit
             </Button>
@@ -247,10 +247,10 @@ export default function Contact() {
       </div>
 
       {/* Listserv Section */}
-      <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-12 md:mt-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
         Want to join our listserv for weekly announcements?
       </h1>
-      <p className="text-primary text-center mt-8 text-lg">
+      <p className="text-primary text-center mt-6 md:mt-8 text-base sm:text-lg px-4">
         Fill out the form below or use the{" "}
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSceezCBHgCzvnFgMgBC9ltGBqzQlFWWFcoz4u9Gv1KZ3O2X7g/viewform"
@@ -263,7 +263,7 @@ export default function Contact() {
         </a>{" "}
         here and we will add you to our Listserv as soon as possible!
       </p>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-6 md:mt-8 px-4">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSceezCBHgCzvnFgMgBC9ltGBqzQlFWWFcoz4u9Gv1KZ3O2X7g/viewform?embedded=true"
           width="640"
@@ -276,21 +276,21 @@ export default function Contact() {
       </div>
 
       {/* Social Media */}
-      <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-12 md:mt-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
         Want to connect with us?
       </h1>
-      <p className="text-primary text-center mt-8 text-lg">
+      <p className="text-primary text-center mt-6 md:mt-8 text-base sm:text-lg px-4">
         Follow us on LinkedIn and Instagram <strong>(@bcsfreehealthclinic)</strong>. Click the icons below to access our profiles directly.
       </p>
 
-      <div className="flex justify-center items-center gap-12 mt-12">
+      <div className="flex justify-center items-center gap-8 sm:gap-12 mt-8 md:mt-12">
         <a
           href="https://www.instagram.com/bcsfreehealthclinic/"
           target="_blank"
           rel="noopener noreferrer"
           className="transition-transform transform hover:scale-110"
         >
-          <img src={insta} alt="Instagram" className="w-24 h-24" />
+          <img src={insta} alt="Instagram" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" />
         </a>
         <a
           href="https://www.linkedin.com/company/bcsfreehealthclinic/"
@@ -298,26 +298,26 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="transition-transform transform hover:scale-110"
         >
-          <img src={linkedin} alt="LinkedIn" className="w-24 h-24" />
+          <img src={linkedin} alt="LinkedIn" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" />
         </a>
       </div>
 
       {/* FAQ */}
-      <h1 className="text-6xl text-primary mt-16 mx-32 font-[Bebas_Neue] text-center">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-12 md:mt-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
         Frequently Asked Questions
       </h1>
-      <div className="max-w-5xl mx-auto mt-12 border border-gray-400 rounded-md overflow-hidden">
+      <div className="max-w-5xl mx-auto mt-8 md:mt-12 border border-gray-400 rounded-md overflow-hidden">
         {faqs.map((faq, i) => (
           <div key={i} className="border-b border-gray-400">
             <button
               onClick={() => toggleIndex(i)}
-              className="w-full flex justify-between items-center bg-[#bcd0d9] px-4 py-3 text-left font-semibold text-gray-800 hover:bg-[#a8c3ce] transition-colors cursor-pointer"
+              className="w-full flex justify-between items-center bg-[#bcd0d9] px-4 py-3 text-left text-sm sm:text-base font-semibold text-gray-800 hover:bg-[#a8c3ce] transition-colors cursor-pointer"
             >
-              {faq.question}
-              {openIndices.includes(i) ? <ChevronUp /> : <ChevronDown />}
+              <span className="pr-2">{faq.question}</span>
+              {openIndices.includes(i) ? <ChevronUp className="flex-shrink-0" /> : <ChevronDown className="flex-shrink-0" />}
             </button>
             {openIndices.includes(i) && (
-              <div className="bg-white px-4 py-3 text-gray-700">
+              <div className="bg-white px-4 py-3 text-sm sm:text-base text-gray-700">
                 {faq.answer}
               </div>
             )}
