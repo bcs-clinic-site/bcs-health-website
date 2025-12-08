@@ -17,8 +17,9 @@ export default function QuoteCarousel() {
   const nextQuote = () => setIndex((prev) => (prev === quotes.length - 1 ? 0 : prev + 1))
 
   return (
-    <div className="relative w-full mt-16">
-      <img src={feedback || "/placeholder.svg"} alt="Feedback" className="w-full" />
+    // FIX APPLIED HERE: Added responsive minimum height classes
+    <div className="relative w-full mt-16 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
+      <img src={feedback || "/placeholder.svg"} alt="Feedback" className="w-full h-full object-cover absolute inset-0" />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-[Bebas_Neue]">PATIENT REVIEWS</h1>
@@ -39,14 +40,14 @@ export default function QuoteCarousel() {
 
       <button
         onClick={prevQuote}
-        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 text-white text-3xl sm:text-5xl lg:text-6xl hover:text-gray-300"
+        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 text-white text-3xl sm:text-5xl lg:text-6xl hover:text-gray-300 z-10"
         aria-label="Previous review"
       >
         &lt;
       </button>
       <button
         onClick={nextQuote}
-        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 text-white text-3xl sm:text-5xl lg:text-6xl hover:text-gray-300"
+        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 text-white text-3xl sm:text-5xl lg:text-6xl hover:text-gray-300 z-10"
         aria-label="Next review"
       >
         &gt;
