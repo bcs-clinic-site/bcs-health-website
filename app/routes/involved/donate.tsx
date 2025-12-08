@@ -7,6 +7,7 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "BCS Free Health Clinic" },
   ];
 }
+
 export default function Donate() {
   useEffect(() => {
     // Inject Donorbox script on mount
@@ -18,40 +19,47 @@ export default function Donate() {
 
     return () => {
       // optional: remove script on unmount
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
   return (
     <div>
-      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-12 mx-32 font-[Bebas_Neue] text-center">
+      {/* Title: Changed mx-32 to flexible px-4 padding */}
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-12 px-4 sm:px-8 md:px-16 font-[Bebas_Neue] text-center">
         Donations
       </h1>
 
-      <p className="mx-40 mt-4 text-primary text-lg max-w-7xl">
-        Supporting your local free health clinic can make a profound difference…
-        <br /><br />
-        Have you or someone you know donated…  
-        Email us at{" "}
-        <a
-          href="mailto:admin@bcsclinic.org"
-          className="hover:text-[#dd73b5] hover:underline cursor-pointer"
-        >
-          <strong>admin@bcsclinic.org</strong>
-        </a>
-        <br /><br />
-        <strong>Zelle Donation:</strong> admin@bcsclinic.org
-        <br /><br />
-      </p>
+      {/* Paragraph: Changed mx-40 to responsive container styling */}
+      <div className="max-w-3xl mx-auto px-7 sm:px-8 mt-4 text-primary text-lg">
+        <p>
+          Supporting your local free health clinic can make a profound difference…
+          <br /><br />
+          Have you or someone you know donated… 
+          Email us at{" "}
+          <a
+            href="mailto:admin@bcsclinic.org"
+            className="hover:text-[#dd73b5] hover:underline cursor-pointer"
+          >
+            <strong>admin@bcsclinic.org</strong>
+          </a>
+          <br /><br />
+          <strong>Zelle Donation:</strong> admin@bcsclinic.org
+          <br /><br />
+        </p>
+      </div>
 
-      {/* Donorbox iframe embed */}
+      {/* Donorbox iframe embed: Responsive sizing for the container */}
       <div
-        className="w-full flex justify-center"
+        className="w-full flex justify-center mb-8 height-80vh sm:height-70vh"
         style={{
           maxWidth: "500px",
           margin: "0 auto 2rem",
-          overflow: "",     // stops page expansion
-          height: "500px",        // stable height that Donorbox will resize into
+          overflow: "hidden", // Prevents overflow issues
+          // Responsive height strategy:
+          minHeight: "400px", // Ensure minimum size on small screens
         }}
       >
         <iframe
@@ -61,7 +69,8 @@ export default function Donate() {
           scrolling="no"
           frameBorder="0"
           width="100%"
-          height="100%"            // matches container
+          // Set iframe height to 100% of its parent div
+          height="100%" 
           style={{
             maxHeight: "none",
           }}
