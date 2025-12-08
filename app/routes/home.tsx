@@ -83,7 +83,7 @@ export default function Home() {
             <Button
               size="sm"
               variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-32 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Learn More
             </Button>
@@ -102,7 +102,7 @@ export default function Home() {
             <Button
               size="sm"
               variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-32 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Learn More
             </Button>
@@ -121,7 +121,7 @@ export default function Home() {
             <Button
               size="sm"
               variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-32 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Learn More
             </Button>
@@ -140,7 +140,7 @@ export default function Home() {
             <Button
               size="sm"
               variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-64 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-32 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Coming soon...
             </Button>
