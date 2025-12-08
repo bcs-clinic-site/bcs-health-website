@@ -8,15 +8,27 @@ import "../css/globals.css"
 import logo from "../images/home/Clinic Logo.png"
 import { Link, useLocation } from "react-router"
 
+// Define a type for the possible open mobile submenus
+type MobileMenuSection = "About" | "Services" | "Involved" | "Synop" | null;
+
 export function Header() {
   const location = useLocation()
   const [activePage, setActivePage] = useState("Home")
-  const [isAboutOpen, setIsAboutOpen] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const [isInvolvedOpen, setIsInvolvedOpen] = useState(false)
-  const [isSynopOpen, setIsSynopOpen] = useState(false)
+  const [isAboutOpen, setIsAboutOpen] = useState(false) // Desktop state
+  const [isServicesOpen, setIsServicesOpen] = useState(false) // Desktop state
+  const [isInvolvedOpen, setIsInvolvedOpen] = useState(false) // Desktop state
+  const [isSynopOpen, setIsSynopOpen] = useState(false) // Desktop state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [dateText, setDateText] = useState("")
+
+  // State for Mobile Submenu Animation
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<MobileMenuSection>(null);
+
+  // Toggle function for mobile submenus
+  const toggleMobileSubmenu = (section: MobileMenuSection) => {
+    // If the same section is clicked, close it, otherwise open the new section
+    setOpenMobileSubmenu(openMobileSubmenu === section ? null : section);
+  };
 
   // Updated to objects with .name and .path
   const aboutItems = [
@@ -61,8 +73,54 @@ export function Header() {
   }, [])
 
   useEffect(() => {
+    // Close mobile menu and submenus on route change
     setIsMobileMenuOpen(false)
+    setOpenMobileSubmenu(null)
   }, [location])
+  
+  // Close mobile submenus when the main mobile menu is closed
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+        setOpenMobileSubmenu(null);
+    }
+  }, [isMobileMenuOpen]);
+
+  // Component for an animated mobile submenu (replaces the <details> tag)
+  const MobileSubmenu = ({ title, section, items, delay }: { title: string, section: MobileMenuSection, items: typeof aboutItems, delay: number }) => {
+    const isOpen = openMobileSubmenu === section;
+    const isAnyItemActive = isCategoryActive(items);
+
+    return (
+      // Main item container with fade-in delay
+      <div className={`px-4 py-2 transition-opacity duration-300 ${isMobileMenuOpen ? `opacity-100 delay-[${delay}ms]` : "opacity-0"}`}>
+        <div 
+            onClick={() => toggleMobileSubmenu(section)}
+            className={`cursor-pointer font-semibold flex justify-between items-center ${isAnyItemActive ? "text-[#FF69B4]" : "text-white"} hover:text-[#dd73b5]`}
+        >
+            {title}
+            <ChevronDown className={`h-4 w-4 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
+        </div>
+        
+        {/* Submenu Content with SLIDE-DOWN Animation */}
+        <div 
+            // Max-h-[500px] is arbitrary but must be larger than the content's actual height
+            className={`ml-4 mt-2 space-y-1 overflow-hidden transition-all duration-300 ease-in-out ${
+                isOpen ? "max-h-[500px] pt-1" : "max-h-0 pt-0" 
+            }`}
+        >
+          {items.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`block px-3 py-1.5 rounded-md text-sm ${isActive(item.path, true)} hover:bg-[#dd73b5]`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <header className="w-full sticky top-0 z-50 bg-black">
@@ -87,12 +145,12 @@ export function Header() {
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                 <img src={logo || "/placeholder.svg"} alt="Main" className="w-auto h-auto" />
               </div>
-              <div className="hidden sm:block">
+              <Link to ="/" className="hidden sm:block">
                 <h1 className="text-lg sm:text-2xl lg:text-3xl font-[Bebas_Neue] text-white">BCS FREE HEALTH CLINIC</h1>
-              </div>
-              <div className="sm:hidden">
+              </Link>
+              <Link to="/" className="sm:hidden">
                 <h1 className="text-lg font-[Bebas_Neue] text-white">BCS FREE HEALTH CLINIC</h1>
-              </div>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -218,100 +276,32 @@ export function Header() {
             </button>
           </div>
 
-          {/* Mobile Navigation Menu with Animation */}
+          {/* Mobile Navigation Menu with Animation and SCROLL FIX */}
           <div
-            // This div controls the height transition for the slide-down effect
+            // This div controls the overall slide-down/up animation
             className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
               isMobileMenuOpen ? "max-h-screen" : "max-h-0"
             }`}
           >
-            <nav className="pb-4 space-y-2">
-              <Link to="/" className={`block px-4 py-2 rounded-md ${isActive("/")} hover:bg-[#dd73b5] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-100" : "opacity-0"}`}>
+            {/* KEY FIX: Added 'h-full' and 'overflow-y-auto' to the nav element. 
+              The parent div (above) sets max-h-screen, but the nav content might still exceed the viewport 
+              below the header. Setting h-full and overflow-y-auto on the nav ensures that the menu itself 
+              is scrollable if its content is taller than the screen.
+            */}
+            <nav className="pb-4 space-y-2 h-full overflow-y-auto">
+              {/* Top-level link with fade-in delay */}
+              <Link to="/" className={`block px-4 py-2 rounded-md ${isActive("/")} hover:bg-[#dd73b5] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-[100ms]" : "opacity-0"}`}>
                 Home
               </Link>
 
-              {/* Mobile About Us */}
-              <details className={`px-4 py-2 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-150" : "opacity-0"}`}>
-                <summary
-                  className={`cursor-pointer font-semibold ${isCategoryActive(aboutItems) ? "text-[#FF69B4]" : "text-white"} hover:text-[#dd73b5]`}
-                >
-                  About Us
-                </summary>
-                <div className="ml-4 mt-2 space-y-1">
-                  {aboutItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      className={`block px-3 py-1.5 rounded-md text-sm ${isActive(item.path, true)} hover:bg-[#dd73b5]`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </details>
+              {/* Mobile Submenus (Using custom component for proper slide animation) */}
+              <MobileSubmenu title="About Us" section="About" items={aboutItems} delay={150} />
+              <MobileSubmenu title="Services" section="Services" items={servicesItems} delay={200} />
+              <MobileSubmenu title="Get Involved" section="Involved" items={involvedItems} delay={250} />
+              <MobileSubmenu title="Symposium" section="Synop" items={synopItems} delay={300} />
 
-              {/* Mobile Services */}
-              <details className={`px-4 py-2 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-200" : "opacity-0"}`}>
-                <summary
-                  className={`cursor-pointer font-semibold ${isCategoryActive(servicesItems) ? "text-[#FF69B4]" : "text-white"} hover:text-[#dd73b5]`}
-                >
-                  Services
-                </summary>
-                <div className="ml-4 mt-2 space-y-1">
-                  {servicesItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      className={`block px-3 py-1.5 rounded-md text-sm ${isActive(item.path, true)} hover:bg-[#dd73b5]`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </details>
-
-              {/* Mobile Get Involved */}
-              <details className={`px-4 py-2 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-250" : "opacity-0"}`}>
-                <summary
-                  className={`cursor-pointer font-semibold ${isCategoryActive(involvedItems) ? "text-[#FF69B4]" : "text-white"} hover:text-[#dd73b5]`}
-                >
-                  Get Involved
-                </summary>
-                <div className="ml-4 mt-2 space-y-1">
-                  {involvedItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      className={`block px-3 py-1.5 rounded-md text-sm ${isActive(item.path, true)} hover:bg-[#dd73b5]`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </details>
-
-              {/* Mobile Symposium */}
-              <details className={`px-4 py-2 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-300" : "opacity-0"}`}>
-                <summary
-                  className={`cursor-pointer font-semibold ${isCategoryActive(synopItems) ? "text-[#FF69B4]" : "text-white"} hover:text-[#dd73b5]`}
-                >
-                  Symposium
-                </summary>
-                <div className="ml-4 mt-2 space-y-1">
-                  {synopItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      className={`block px-3 py-1.5 rounded-md text-sm ${isActive(item.path, true)} hover:bg-[#dd73b5]`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </details>
-
-              {/* Mobile Contact Us */}
-              <Link to="/contact" className={`block px-4 py-2 rounded-md ${isActive("/contact")} hover:bg-[#dd73b5] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-350" : "opacity-0"}`}>
+              {/* Top-level link with fade-in delay */}
+              <Link to="/contact" className={`block px-4 py-2 rounded-md ${isActive("/contact")} hover:bg-[#dd73b5] transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 delay-[350ms]" : "opacity-0"}`}>
                 Contact Us
               </Link>
             </nav>
