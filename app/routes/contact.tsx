@@ -5,8 +5,9 @@ import type { Route } from "./+types/home";
 import { Button } from "~/components/ui/button";
 import insta from "../images/contact/Instagram_icon.png";
 import linkedin from "../images/contact/LinkedIn_logo_initials.png";
+import map from "../images/contact/Clinic MapParking.png"
 import { ChevronDown, ChevronUp } from "lucide-react";
-
+import Lightbox from "../components/lightbox";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -31,6 +32,15 @@ function getFriendlyErrorMessage(err: FormspreeError) {
 }
 
 export default function Contact() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lightboxImages = [
+    {
+      id: "clinic-map",
+      url: map,
+      name: "Clinic Parking and Entrance Map",
+    },
+  ];
+
   // Form state
   const [formData, setFormData] = useState({
     name: "",
@@ -92,11 +102,6 @@ export default function Contact() {
         "We operate on the last Saturday of each month from 10AM to 12PM. Patients are asked to arrive at least 15 minutes before their scheduled appointment time to allow for check-in and ensure the clinic runs smoothly.",
     },
     {
-      question: "Where do we park and enter?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna vel tincidunt blandit, justo justo elementum sapien, et lacinia felis nisi a nibh.",
-    },
-    {
       question:
         "Do I need insurance for your clinic? What do I do if I don't have insurance?",
       answer:
@@ -126,23 +131,39 @@ export default function Contact() {
       question:
         "If I need a prescription refill, can I get that done at the clinic?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna vel tincidunt blandit, justo justo elementum sapien, et lacinia felis nisi a nibh.",
+        "In most cases, yes. There are some exceptions of certain medications that cannot be refilled through the clinic.",
     },
     {
       question:
         "If I need a referral to a specialist, can I get that done at the clinic?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna vel tincidunt blandit, justo justo elementum sapien, et lacinia felis nisi a nibh.",
+        "Yes, our providers can issue referrals when medically appropriate. However, patients are responsible for contacting the referred specialist directly to schedule their appointments.",
     },
     {
       question: "What services do you provide?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna vel tincidunt blandit, justo justo elementum sapien, et lacinia felis nisi a nibh.",
+        "We offer a variety of primary and urgent-care-style services. If a requested service is outside the scope of of what we provide, our team will inform you during your visit.",
     },
     {
       question: "Where do I park and where is the entrance?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna vel tincidunt blandit, justo justo elementum sapien, et lacinia felis nisi a nibh.",
+      answer: (
+    <div className="space-y-3">
+      <p>
+        Parking and entrance instructions are provided in advance of the clinic days
+        and are available on our website and social media pages. Please follow posted
+        signage upon arrival, and clinic volunteers will be available to assist you if needed.
+      </p>
+
+      
+      
+      <img
+        src={map}
+        alt="Clinic parking and entrance map"
+        className="w-full max-w-md rounded-md border mx-auto cursor-pointer  hover:opacity-90 transition"
+        onClick={() => setLightboxIndex(0)}
+      />
+    </div>
+  ),
     },
   ];
 
@@ -154,6 +175,14 @@ export default function Contact() {
 
   return (
     <div className="px-4 md:px-8 pb-12">
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={lightboxImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(i) => setLightboxIndex(i)}
+        />
+      )}
       <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-8 md:mt-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
         Want To Contact Us?
       </h1>

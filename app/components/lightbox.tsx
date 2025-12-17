@@ -40,6 +40,32 @@ export default function Lightbox({ images, index, onClose, onNavigate }: Lightbo
 
   return (
     <AnimatePresence>
+      <style>{`
+  .lightbox-scroll {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  }
+
+  .lightbox-scroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .lightbox-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .lightbox-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .lightbox-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.55);
+  }
+`}</style>
       <motion.div
         className="fixed inset-0 w-screen h-screen z-50 bg-black/80 flex items-center justify-center"
         initial={{ opacity: 0 }}
@@ -48,18 +74,51 @@ export default function Lightbox({ images, index, onClose, onNavigate }: Lightbo
         onClick={onClose}
       >
         {/* Image */}
-        <motion.img
-          key={img.id}
-          src={img.url}
-          alt={img.name}
-          className="max-h-[90vh] max-w-[90vw] rounded-xl object-contain cursor-zoom-in"
-          style={{ cursor: zoomed ? "zoom-out" : "zoom-in" }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, scale: zoomed ? 2 : 1 }} // zoom effect
-          exit={{ opacity: 0, scale: 1 }}
-          transition={{ duration: 0.25 }}
-          onClick={(e) => { e.stopPropagation(); setZoomed(!zoomed); }}
-        />
+       <div
+  className="lightbox-scroll max-h-[90vh] max-w-[90vw] overflow-auto overscroll-contain flex items-center justify-center"
+  onClick={(e) => e.stopPropagation()}
+>
+  <motion.img
+  key={img.id}
+  src={img.url}
+  alt={img.name}
+  className="rounded-xl select-none"
+  style={{
+    maxWidth: "90vw",
+    maxHeight: "90vh",
+    objectFit: "contain",
+
+    transformOrigin: zoomed ? "var(--origin-x) var(--origin-y)" : "center",
+    cursor: zoomed ? "zoom-out" : "zoom-in",
+  }}
+  initial={{ opacity: 0, scale: 1 }}
+  animate={{
+    opacity: 1,
+    scale: zoomed ? 2 : 1,
+  }}
+  transition={{
+    type: "spring",
+    stiffness: 260,
+    damping: 30,
+  }}
+  onClick={(e) => {
+    e.stopPropagation();
+
+    if (!zoomed) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      e.currentTarget.style.setProperty("--origin-x", `${x}%`);
+      e.currentTarget.style.setProperty("--origin-y", `${y}%`);
+    }
+
+    setZoomed(!zoomed);
+  }}
+/>
+
+</div>
+
 
         {/* Close Button */}
         <button
