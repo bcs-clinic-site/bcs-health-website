@@ -28,7 +28,7 @@ Object.keys(images).forEach(path => {
 // Top row: individual members
 type Member = { filename: string; name: string; title: string };
 const topRow: Member[] = [
-  { filename: "Huda.png", name: "Dr. Huda Naeem", title: "Medical Director" },
+  { filename: "Huda.jpg", name: "Dr. Huda Naeem", title: "Medical Director" },
   { filename: "Malak.jpg", name: "Malak Ezzat", title: "Clinic Manager" },
   { filename: "Ameera.jpg", name: "Ameera Chan", title: "Finance Director" },
   { filename: "Ryme.jpg", name: "Ryme Elboukhani", title: "Admin Director" },
