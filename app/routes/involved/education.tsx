@@ -4,7 +4,8 @@ import React from "react";
 import absImg from '../../images/about/providers/unknown.jpg'
 import type { Route } from "../+types/home";
 import { Button } from "~/components/ui/button"
-
+import getPictures from "~/components/getPictures";
+import Gallery from "~/components/gallery";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Education - BCS Free Health Clinic" },
@@ -13,6 +14,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Education() {
+  const images = getPictures("education");
   return (
     <div className="px-4 md:px-8 pb-12">
         <div className="flex flex-col md:flex-row items-center pt-8 md:pt-16 gap-6 md:gap-0 md:-space-x-10">
@@ -43,13 +45,18 @@ export default function Education() {
             </div>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-16 md:mt-24 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-16 md:mt-24 mb-8 md:mb-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
           Education Photo Gallery
         </h1>
 
-        <p className="text-base sm:text-lg text-primary text-center mx-auto mt-6 px-4 sm:px-6">
-          We are working diligently to gather our education gallery. Please come back at a later time to view our photos!
-        </p>
+        <hr className = "mb-16 md:mb-24"></hr>
+        {images ? (
+          <Gallery data={images} />
+        ) : (
+          <p className="mx-4 sm:mx-8 md:mx-32 lg:mx-48 mt-8 text-primary text-base sm:text-lg max-w-7xl text-center">
+            Loading Gallery, please wait...
+          </p>
+        )}
     </div>
   );
 }

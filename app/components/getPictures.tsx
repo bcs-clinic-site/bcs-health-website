@@ -11,57 +11,51 @@ export default function getPictures(
   useEffect(() => {
     if (!type) return;
 
-    // Import EVERYTHING once — Vite supports this
+    // CHANGED: Remove eager: true to enable lazy loading
     const modules = import.meta.glob("../images/gallery/**/*", {
-      eager: true,
       import: "default",
-    }) as Record<string, string>;
+    }) as Record<string, () => Promise<string>>;
 
     const categorized: LocalImageCategory = {};
 
-    for (const [path, url] of Object.entries(modules)) {
-      // Must match only the correct type
-      // Example path: "../images/gallery/outreach/1. Workshop/img1.jpg"
+    for (const [path, importFn] of Object.entries(modules)) {
       if (!path.includes(`/gallery/${type}/`)) continue;
 
       const parts = path.split("/");
-
-      // folder structure: gallery/type/<subfolder>/<file>
       const folder = parts[parts.length - 2];
       const file = parts[parts.length - 1];
 
       if (!folder || !file) continue;
 
-      // Remove numeric prefixes like "1. Workshop" → "Workshop"
       const cleaned = folder.replace(/^\d+\.\s*/, "");
 
       if (!categorized[cleaned]) categorized[cleaned] = [];
 
+      // Store the import function path - will be loaded when needed
       categorized[cleaned].push({
         id: `${folder}-${file}`,
         name: file,
-        url,
+        url: path, // Store path temporarily
       });
     }
 
-    // Sort subfolders by numeric prefix descending
-    const sorted: LocalImageCategory = {};
+    // Load URLs lazily
+    const loadUrls = async () => {
+      const sorted: LocalImageCategory = {};
+      
+      for (const [folder, imgs] of Object.entries(categorized)) {
+        sorted[folder] = await Promise.all(
+          imgs.map(async (img) => ({
+            ...img,
+            url: await modules[img.url](),
+          }))
+        );
+      }
+      
+      setData(sorted);
+    };
 
-    Object.keys(categorized)
-      .sort((a, b) => {
-        const aMatch = Object.keys(modules).find((p) => p.includes(a))?.match(/\/(\d+)\./);
-        const bMatch = Object.keys(modules).find((p) => p.includes(b))?.match(/\/(\d+)\./);
-
-        const numA = aMatch ? parseInt(aMatch[1], 10) : 0;
-        const numB = bMatch ? parseInt(bMatch[1], 10) : 0;
-
-        return numA - numB;
-      })
-      .forEach((folder) => {
-        sorted[folder] = categorized[folder];
-      });
-
-    setData(sorted);
+    loadUrls();
   }, [type]);
 
   return data;

@@ -6,3 +6,4 @@
 /build/
 backend/.env
 .env
+/app/images/gallery/
