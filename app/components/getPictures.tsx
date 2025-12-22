@@ -4,7 +4,7 @@ import type { DriveImage } from "./gallery";
 export type LocalImageCategory = Record<string, DriveImage[]>;
 
 export default function getPictures(
-  type: "outreach" | "education" | "symposium"
+  type: String
 ) {
   const [data, setData] = useState<LocalImageCategory | null>(null);
 

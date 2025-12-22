@@ -5,6 +5,8 @@ import topPhoto from '../../images/services/monthly/Top Photo.png';
 import { Button } from "~/components/ui/button";
 import type { Route } from "../+types/home";
 import Lightbox from "../../components/lightbox"; // adjust path if needed
+import getPictures from "~/components/getPictures";
+import Gallery from "~/components/gallery";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -35,6 +37,8 @@ export default function Appointments() {
     name: filename.replace(/\.(png|jpg|jpeg|svg)$/i, ""),
   }));
 
+const imagesGallery = getPictures("clinic");
+
   return (
     <div className="mt-16">
       {/* Lightbox */}
@@ -61,33 +65,37 @@ export default function Appointments() {
         }}
       />
 
-      <p className="mx-4 sm:mx-12 md:mx-24 lg:mx-46 mt-4 text-primary text-lg max-w-7xl">
-        At BCS Free Health Clinic, we make it easy for you to receive the quality care you deserve from our compassionate and highly qualified doctors. Appointments must be scheduled online to see our physicians and specialists.
-        <br /><br />
-        <strong>Important Appointment Details:</strong>
-        <ul className="mx-12 mt-4 text-primary list-disc">
-          <li className="text-primary text-lg">
-            <strong>We do not accept walk-ins.</strong> Deadlines for monthly clinic appoints close 
-            <strong> the Friday before the clinic date at 5PM.</strong> Please schedule your appointments accordingly.
-          </li>
-          <li className="text-primary text-lg">
-            Patients should arrive <strong>15 minutes before their scheduled appointment time.</strong>
-          </li>
-          <li className="text-primary text-lg">
-            When you enter, please make sure to enter through the <strong>sister’s entrance on the right side of the building.</strong> 
-            Look for the clinic banner and signs if needed.
-          </li>
-        </ul>
-        <br />
-        For any concerns or to cancel an appointment, please text (979)-481-8881.
-        <div className="flex justify-center pt-12">
-          <a href="https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" variant="secondary" className="text-lg px-40 py-7 w-56 bg-primary text-white rounded-lg hover:bg-[#dd73b5] transition-all duration-200 cursor-pointer">
-              Book an Appointment
-            </Button>
-          </a>
-        </div>
-      </p>
+      <div className="flex justify-center px-4 sm:px-6 lg:px-8 mt-4">
+  <div className="max-w-4xl w-full">
+    <p className="text-primary text-lg">
+      At BCS Free Health Clinic, we make it easy for you to receive the quality care you deserve from our compassionate and highly qualified doctors. Appointments must be scheduled online to see our physicians and specialists.
+      <br /><br />
+      <strong>Important Appointment Details:</strong>
+      <ul className="ml-6 mt-4 text-primary list-disc space-y-2">
+        <li className="text-primary text-lg">
+          <strong>We do not accept walk-ins.</strong> Deadlines for monthly clinic appoints close 
+          <strong> the Friday before the clinic date at 5PM.</strong> Please schedule your appointments accordingly.
+        </li>
+        <li className="text-primary text-lg">
+          Patients should arrive <strong>15 minutes before their scheduled appointment time.</strong>
+        </li>
+        <li className="text-primary text-lg">
+          When you enter, please make sure to enter through the <strong>sister's entrance on the right side of the building.</strong> 
+          Look for the clinic banner and signs if needed.
+        </li>
+      </ul>
+      <br />
+      For any concerns or to cancel an appointment, please text (979)-481-8881.
+    </p>
+    <div className="flex justify-center pt-12">
+      <a href="https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target="_blank" rel="noopener noreferrer">
+        <Button size="lg" variant="secondary" className="text-lg px-40 py-7 w-56 bg-primary text-white rounded-lg hover:bg-[#dd73b5] transition-all duration-200 cursor-pointer">
+          Book an Appointment
+        </Button>
+      </a>
+    </div>
+  </div>
+</div>
 
       {/* FIX 2 APPLIED: Responsive margin on the grid container */}
       <div className="flex flex-wrap justify-center gap-6 px-4 sm:px-8 md:mx-32 mt-16">
@@ -105,6 +113,19 @@ export default function Appointments() {
           </figure>
         ))}
       </div>
+
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-16 md:mt-24 mb-8 md:mb-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
+          Clinic Gallery
+        </h1>
+
+        <hr className = "mb-16 md:mb-24"></hr>
+        {imagesGallery ? (
+          <Gallery data={imagesGallery} />
+        ) : (
+          <p className="mx-4 sm:mx-8 md:mx-32 lg:mx-48 mt-8 text-primary text-base sm:text-lg max-w-7xl text-center">
+            Loading Gallery, please wait...
+          </p>
+        )}
     </div>
   );
 }
