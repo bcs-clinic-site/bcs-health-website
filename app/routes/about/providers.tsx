@@ -15,7 +15,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 // Import all images dynamically
-const images = import.meta.glob('../../images/about/providers/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>;
+const images = import.meta.glob('../../images/about/providers/*.{png,jpg,jpeg,svg,JPEG,JPG}', { eager: true }) as Record<string, { default: string }>;
 
 // Map filenames to URLs
 const imageMap: Record<string, string> = {};
@@ -28,16 +28,16 @@ Object.keys(images).forEach(path => {
 // Top row: individual members
 type Member = { filename: string; name: string; title: string };
 const topRow: Member[] = [
-  { filename: "Website Redesign (3).png", name: "Dr. Huda Naeem", title: "ER Medicine, Wilderness Medicine Fellowship" },
-  { filename: "Website Redesign (4).png", name: "Dr. Adnanul Karim", title: "Internal Medicine, Pulmonology, Critical Care" },
-  { filename: "Website Redesign (5).png", name: "Pa. Shafia Naeem", title: "Urgent Care" },
-  { filename: "Website Redesign (6).png", name: "Malak Ezzat", title: "Student Doctor" },
+  { filename: "Huda Naeem.jpg", name: "Dr. Huda Naeem", title: "ER Medicine, Wilderness Medicine Fellowship" },
+  { filename: "Adnanul Karim.jpg", name: "Dr. Adnanul Karim", title: "Internal Medicine, Pulmonology, Critical Care" },
+  { filename: "Shafia Naeem.JPEG", name: "Pa. Shafia Naeem", title: "Urgent Care" },
+  { filename: "Malak.jpg", name: "Malak Ezzat", title: "Student Doctor" },
 ];
 
 // Bottom row: groups
 const secondRow: Member[] = [
-  { filename: "Website Redesign (7).png", name: "Dr. Habibah Lami Jiwo", title: "Women Health Assistant Lead" },
-  { filename: "Website Redesign (8).png", name: "Dr. Nagat Shigidi", title: "Women Health Lead" },
+  { filename: "Habiba Jiwo.jpg", name: "Dr. Habibah Lami Jiwo", title: "Women Health Assistant Lead" },
+  { filename: "Nagat Shigidi.JPG", name: "Dr. Nagat Shigidi", title: "Women Health Lead" },
   { filename: "unknown.jpg", name: "To Be Revealed...", title: "To be revealed..." }
 ];
 
