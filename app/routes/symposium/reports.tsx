@@ -36,7 +36,7 @@ export default function Reports() {
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto pointer-events-none opacity-50">
                         <Button size="lg" variant="secondary" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 md:px-12 py-6 md:py-7 bg-primary text-white rounded-lg hover:bg-[#dd73b5] transition-all duration-200 cursor-pointer">
-                          Latest Symposium Report
+                          Latest Symposium Report (Coming soon...)
                         </Button>
                     </a>
                 </div>
