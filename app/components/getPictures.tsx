@@ -18,7 +18,8 @@ export default function getPictures(
 
     const categorized: LocalImageCategory = {};
 
-    for (const [path, importFn] of Object.entries(modules)) {
+    const entries = Object.entries(modules).reverse();
+    for (const [path, importFn] of entries) {
       if (!path.includes(`/gallery/${type}/`)) continue;
 
       const parts = path.split("/");
@@ -27,7 +28,9 @@ export default function getPictures(
 
       if (!folder || !file) continue;
 
-      const cleaned = folder.replace(/^\d+\.\s*/, "");
+      const cleaned = folder.replace(/^(\d+)\.\s*/, "").replace(/^\(([^)]*)\)/, (match, inner) => {
+        return `(${inner.replace(/_/g, "/")})`;
+      });
 
       if (!categorized[cleaned]) categorized[cleaned] = [];
 
