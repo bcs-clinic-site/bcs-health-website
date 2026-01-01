@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import Footer from "./components/footer";
 import {Header} from "./components/header"
+import NotFoundPage from "./not-found";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -55,6 +56,8 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
+    if (error.status === 404)
+        return <NotFoundPage />;
     message = error.status === 404 ? "404" : "Error";
     details =
       error.status === 404
