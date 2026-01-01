@@ -151,7 +151,7 @@ export default function Home() {
       <QuoteCarousel />
 
       <div id="review">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-16 sm:mt-20 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue] text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue] text-center">
           Want to leave us a review?
         </h1>
         <div className="mt-6 sm:mt-8 mx-4 sm:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center">

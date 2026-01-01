@@ -29,6 +29,15 @@ export default function QuoteCarousel() {
   const prevQuote = () => setIndex((prev) => (quotes.length ? (prev === 0 ? quotes.length - 1 : prev - 1) : 0))
   const nextQuote = () => setIndex((prev) => (quotes.length ? (prev === quotes.length - 1 ? 0 : prev + 1) : 0))
 
+  const getTextSize = (text: string) => {
+  const len = text.length
+  if (len > 300) return "text-lg sm:text-xl lg:text-2xl"
+  if (len > 200) return "text-xl sm:text-2xl lg:text-3xl"
+  if (len > 120) return "text-2xl sm:text-3xl lg:text-4xl"
+  return "text-2xl sm:text-3xl lg:text-5xl"
+}
+
+
   if (!quotes.length) {
     return (
       <div className="relative w-full mt-16 min-h-[300px] sm:min-h-[400px] md:min-h-[500px] flex items-center justify-center">
@@ -39,24 +48,33 @@ export default function QuoteCarousel() {
 
   return (
     <div className="relative w-full mt-16 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
-      <img src={feedback || "/placeholder.svg"} alt="Feedback" className="w-full h-full object-cover absolute inset-0" />
+      <img src={feedback || "/placeholder.svg"} alt="Feedback" className="w-full h-6/7 object-cover absolute inset-0" />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-[Bebas_Neue]">PATIENT REVIEWS</h1>
+      <div className="absolute inset-0 text-center mt-10 sm:mt-10">
+        {/* Fixed Title */}
+        <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-[Bebas_Neue] pt-12 sm:pt-16">
+          PATIENT REVIEWS
+        </h1>
 
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={index}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.2 }}
-            className="text-white font-[Arial_MT_Pro] text-2xl sm:text-3xl lg:text-5xl mt-8 sm:mt-16 max-w-2xl sm:max-w-3xl italic px-4 sm:px-0"
-          >
-            {quotes[index]}
-          </motion.p>
-        </AnimatePresence>
+        {/* Centered Quote */}
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.2 }}
+              className={`text-white font-[Arial_MT_Pro] italic max-w-3xl 
+                ${getTextSize(quotes[index])}
+                max-h-[40vh]`}
+            >
+              "{quotes[index]}"
+            </motion.p>
+          </AnimatePresence>
+        </div>
       </div>
+
 
       <button
         onClick={prevQuote}
