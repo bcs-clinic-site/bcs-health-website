@@ -1,23 +1,43 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import feedback from "../images/home/Feedback Background.png"
 
 export default function QuoteCarousel() {
-  const quotes = [
-    '"Thank you for doing this for the community, it means a lot."',
-    '"Lorem ipsum dolor sit amet, consectetur adipiscing elit"',
-    '"Sed diam nibh, scelerisque et rutrum eget, sollicitudin eget urna"',
-  ]
-
+  const [quotes, setQuotes] = useState<string[]>([])
   const [index, setIndex] = useState(0)
 
-  const prevQuote = () => setIndex((prev) => (prev === 0 ? quotes.length - 1 : prev - 1))
-  const nextQuote = () => setIndex((prev) => (prev === quotes.length - 1 ? 0 : prev + 1))
+  // Fetch quotes from the text file
+  useEffect(() => {
+    const fetchQuotes = async () => {
+      try {
+        const res = await fetch("/content/reviews.txt")
+        const text = await res.text()
+        const lines = text
+          .split("\n")
+          .map((line) => line.trim())
+          .filter((line) => line.length > 0) // remove empty lines
+        setQuotes(lines)
+      } catch (err) {
+        console.error("Failed to fetch quotes:", err)
+      }
+    }
+    fetchQuotes()
+  }, [])
+
+  const prevQuote = () => setIndex((prev) => (quotes.length ? (prev === 0 ? quotes.length - 1 : prev - 1) : 0))
+  const nextQuote = () => setIndex((prev) => (quotes.length ? (prev === quotes.length - 1 ? 0 : prev + 1) : 0))
+
+  if (!quotes.length) {
+    return (
+      <div className="relative w-full mt-16 min-h-[300px] sm:min-h-[400px] md:min-h-[500px] flex items-center justify-center">
+        <p className="text-white text-2xl sm:text-3xl lg:text-5xl">Loading reviews...</p>
+      </div>
+    )
+  }
 
   return (
-    // FIX APPLIED HERE: Added responsive minimum height classes
     <div className="relative w-full mt-16 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
       <img src={feedback || "/placeholder.svg"} alt="Feedback" className="w-full h-full object-cover absolute inset-0" />
 

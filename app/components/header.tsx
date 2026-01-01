@@ -67,7 +67,7 @@ export function Header() {
     items.some((item) => location.pathname === item.path)
 
   useEffect(() => {
-    fetch("/! Editable Content/clinic_date.txt")
+    fetch("/content/clinic_date.txt")
       .then((res) => res.text())
       .then((text) => setDateText(text))
   }, [])
