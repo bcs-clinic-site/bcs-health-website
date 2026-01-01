@@ -33,7 +33,7 @@ export default function QuoteCarousel() {
   const len = text.length
   if (len > 300) return "text-lg sm:text-xl lg:text-2xl"
   if (len > 200) return "text-xl sm:text-2xl lg:text-3xl"
-  if (len > 120) return "text-2xl sm:text-3xl lg:text-4xl"
+  if (len > 100) return "text-2xl sm:text-3xl lg:text-4xl"
   return "text-2xl sm:text-3xl lg:text-5xl"
 }
 
