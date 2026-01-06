@@ -42,7 +42,7 @@ const secondRow: Member[] = [
 ];
 
 const thirdRowA: Member[] = [
-  { filename: "Website Redesign (9).png", name: "Dr. Fariha Irshad", title: "Nutritionist and Food Scientist" }
+  { filename: "Irshad.png", name: "Dr. Fariha Irshad", title: "Nutritionist and Food Scientist" }
 ];
 
 const thirdRowB: Member[] = [
