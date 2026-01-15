@@ -42,11 +42,11 @@ const secondRow: Member[] = [
 ];
 
 const thirdRowA: Member[] = [
-  { filename: "Irshad.png", name: "Dr. Fariha Irshad", title: "Nutritionist and Food Scientist" }
+  { filename: "Irshad.jpg", name: "Dr. Fariha Irshad", title: "Nutritionist and Food Scientist" }
 ];
 
 const thirdRowB: Member[] = [
-  { filename: "unknown.jpg", name: "Dr. Maryam Ahmed", title: "To be revealed..." }
+  { filename: "Maryam Ahmed.png", name: "Dr. Maryam Ahmed", title: "Licensed Professional Counselor" }
 ];
 
 export default function Providers() {

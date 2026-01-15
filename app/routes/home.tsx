@@ -136,13 +136,13 @@ export default function Home() {
           <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
             More details coming on our new mental health program in October 2026, In'Sha Allah.
           </div>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="pointer-events-none opacity-50">
+          <a href="/services/ammanah" rel="noopener noreferrer">
             <Button
               size="sm"
               variant="secondary"
               className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-40 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
-              Coming soon...
+              Learn More
             </Button>
           </a>
         </div>

@@ -41,7 +41,7 @@ export function Header() {
     { name: "Monthly Appointments", path: "/services/appointments" },
     { name: "Bait ul Naeem", path: "/services/bait-ul-naeem" },
     { name: "Irshad Al-Aafiyah", path: "/services/irshad" },
-    { name: "Immanah", path: "/services/immanah" },
+    { name: "Ammanah", path: "/services/ammanah" },
     { name: "Schedule/News", path: "/services/schedule" },
     { name: "Feedback", path: "/services/feedback" },
   ]

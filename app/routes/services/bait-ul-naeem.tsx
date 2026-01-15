@@ -56,7 +56,7 @@ export default function BaitUlNaeem() {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSePF5Om3pQHPFSrxh1xZKi8d6e6u_w1yrLrM62G1rKyEbED_w/viewform?pli=1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-slate-900 hover:bg-slate-800 text-white px-8 py-3 text-sm font-semibold shadow-md transition whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full bg-primary hover:bg-[#dd73b5] text-white px-8 py-3 text-sm font-semibold shadow-md transition whitespace-nowrap"
               >
                 Apply Here
               </a>
