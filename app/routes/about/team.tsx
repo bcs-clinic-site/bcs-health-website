@@ -15,7 +15,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 // Import all images dynamically
-const images = import.meta.glob('../../images/about/team/*.{png,jpg,jpeg,svg}', { eager: true }) as Record<string, { default: string }>;
+const images = import.meta.glob('../../images/about/team/*.{png,jpg,jpeg,svg,JPG}', { eager: true }) as Record<string, { default: string }>;
 
 // Map filenames to URLs
 const imageMap: Record<string, string> = {};
@@ -31,7 +31,7 @@ const topRow: Member[] = [
   { filename: "Huda.jpg", name: "Dr. Huda Naeem", title: "Medical Director" },
   { filename: "Malak.jpg", name: "Malak Ezzat", title: "Clinic Manager" },
   { filename: "Ameera.jpg", name: "Ameera Chan", title: "Finance Director" },
-  { filename: "Ryme.jpg", name: "Ryme Elboukhani", title: "Admin Director" },
+  { filename: "Ryme.JPG", name: "Ryme Elboukhani", title: "Admin Director" },
   { filename: "Aniyah.jpg", name: "Aniyah Zaman", title: "Volunteer Coordinator" },
 ];
 
@@ -39,8 +39,8 @@ const topRow: Member[] = [
 type Group = { filenames: string[]; names: string[]; title: string };
 const bottomRow: Group[] = [
   { filenames: ["Asad.jpg"], names: ["Asad Ansari"], title: "Logistics Director" },
-  { filenames: ["Ahmed.png", "Zoya.jpg"], names: ["Ahmed Saleh", "Zoya Kareem"], title: "Community Outreach Directors" },
-  { filenames: ["Jessica.jpg", "Radwa.jpg"], names: ["Jessica Lan-Anh", "Radwa Eman"], title: "Marketing Directors" },
+  { filenames: ["Ahmed.jpg", "Zoya.jpg"], names: ["Ahmed Saleh", "Zoya Kareem"], title: "Community Outreach Directors" },
+  { filenames: ["Jessica.jpg"], names: ["Jessica Lan-Anh"], title: "Marketing Director" },
 ];
 
 export default function Team() {
