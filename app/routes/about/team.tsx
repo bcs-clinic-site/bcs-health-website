@@ -31,7 +31,7 @@ const topRow: Member[] = [
   { filename: "Huda.jpg", name: "Dr. Huda Naeem", title: "Medical Director" },
   { filename: "Malak.jpg", name: "Malak Ezzat", title: "Clinic Manager" },
   { filename: "Ameera.jpg", name: "Ameera Chan", title: "Finance Director" },
-  { filename: "Ryme.JPG", name: "Ryme Elboukhani", title: "Admin Director" },
+  { filename: "Ryme.jpg", name: "Ryme Elboukhani", title: "Admin Director" },
   { filename: "Aniyah.jpg", name: "Aniyah Zaman", title: "Volunteer Coordinator" },
 ];
 
