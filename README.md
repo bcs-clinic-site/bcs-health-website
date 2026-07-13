@@ -11,7 +11,13 @@ If you are just helping to run the website, here is how to get set up:
 ### Prerequisites
 1. **Node.js:** Download and install [Node.js](https://nodejs.org/) (use the "LTS" version).
 2. **Visual Studio Code:** Download and install [VS Code](https://code.visualstudio.com/).
-3. **GitHub Copilot (Optional):** You can use [GitHub Copilot](https://github.com/features/copilot) inside VS Code for intelligent code assistance.
+3. **GitHub Desktop:** Download and install [GitHub Desktop](https://desktop.github.com/).
+4. **GitHub Copilot (Optional):** You can use [GitHub Copilot](https://github.com/features/copilot) inside VS Code for intelligent code assistance.
+
+### Getting the Code (Cloning)
+1. Open **GitHub Desktop** and log in.
+2. Click **File** > **Clone repository**.
+3. Select the repository from the list (or enter the URL) and choose a folder on your computer to save it.
 
 ### Running the Website
 1. Open the project folder in **VS Code**.
