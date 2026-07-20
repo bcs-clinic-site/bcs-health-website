@@ -104,10 +104,12 @@ Follow these steps to update the live website:
 2. **Log in to Bluehost:** Go to [Bluehost.com](https://www.bluehost.com) and log in to your account.
 3. **Open File Manager:** Go to the [Sites page](https://www.bluehost.com/my-account/hosting/details/sites), find **BCS-Clinic**, and click **File Manager**.
 4. **Upload files:**
+   * Go to `/assets` on BlueHost
    * Click **Upload**.
    * Check the box for **"Overwrite existing files"**.
    * Click **Select File**.
-   * Select every file and folder located *inside* your local `build` folder (you can use Shift+Click to select them all) and upload them.
+   * Select every file and folder located *inside* your local `build/client/assets` folder (you can use Shift+Click to select them all) and upload them (Only if any pictures were changed/uploaded).
+   * Do the same thing for `/content` on bluehost from your local `build/client/content`
 
 ---
 
