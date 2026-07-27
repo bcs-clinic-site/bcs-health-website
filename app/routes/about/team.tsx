@@ -40,8 +40,8 @@ const bottomLineTeam: Member[] = [
 
 // Volunteer co-coordinators (displayed separately)
 const volunteerCoordinators: Member[] = [
-  { filename: "Sidrat-ul Muntaha.jpg", name: "Sidrat-ul Muntaha", title: "Volunteer Co-coordinator" },
-  { filename: "Doha Shehata.png", name: "Doha Shehata", title: "Volunteer Co-coordinator" },
+  { filename: "Sidrat-ul Muntaha.png", name: "Sidrat-ul Muntaha", title: "Volunteer Co-coordinator" },
+  { filename: "doha shehta.png", name: "Doha Shehata", title: "Volunteer Co-coordinator" },
 ];
 
 // Marketing co-directors (displayed separately)
