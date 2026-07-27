@@ -146,6 +146,11 @@ export default function Providers() {
 
       {/* Bait Ul Naeem Co-Leads Section */}
       <div className="flex flex-col items-center">
+        {/* Title at top */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-8 md:mb-12">
+          Bait Ul Naeem: House of Ease
+        </h2>
+
         {/* Photos side by side */}
         <div className="flex justify-center gap-6 md:gap-12 lg:gap-20 mb-6 md:mb-8">
           {baitUlNaeemCoLeads.map((provider, idx) => (
@@ -159,15 +164,17 @@ export default function Providers() {
           ))}
         </div>
 
-        {/* Title below photos */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-3 md:mb-4">
-          BAIT UL NAEEM CO-LEADS
-        </h2>
-
-        {/* Names below title */}
-        <div className="text-center">
+        {/* Names below photos */}
+        <div className="text-center mb-3 md:mb-4">
           <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
             Sarah Kakwan & Zuha Aijaz
+          </div>
+        </div>
+
+        {/* Co-Leads at bottom */}
+        <div className="text-center">
+          <div className="text-sm md:text-base text-[#075a77]">
+            Co-Leads
           </div>
         </div>
       </div>
