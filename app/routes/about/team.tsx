@@ -54,7 +54,7 @@ export default function Team() {
   const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
 
   // Build a master image list for the lightbox
-  const allImages = [...topLineTeam, ...bottomLineTeam, ...volunteerCoordinators, ...marketingCoDirectors].map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name }));
+  const allImages = [...topLineTeam, ...volunteerCoordinators, ...marketingCoDirectors, ...bottomLineTeam].map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name }));
 
   const handleImageClick = (memberFilename: string) => {
     const index = allImages.findIndex(img => img.id === memberFilename);
@@ -105,37 +105,65 @@ export default function Team() {
     </div>
   );
 
-  const renderDuoSectionNew = (members: Member[], title: string) => (
-    <div className="flex flex-col items-center">
-      {/* Title at top */}
-      <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-8 md:mb-12">
-        {title}
-      </h2>
+  const renderCoordinatorSection = () => (
+    <div className="flex flex-col lg:flex-row justify-center gap-12 lg:gap-24 items-start">
+      {/* Volunteer Co-Coordinators */}
+      <div className="flex flex-col items-center">
+        {/* Photos side by side */}
+        <div className="flex justify-center gap-6 md:gap-12 lg:gap-20 mb-6 md:mb-8">
+          {volunteerCoordinators.map((member, i) => (
+            <img
+              key={i}
+              src={imageMap[member.filename] ?? ""}
+              alt={member.name}
+              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              onClick={() => handleImageClick(member.filename)}
+            />
+          ))}
+        </div>
 
-      {/* Photos side by side */}
-      <div className="flex justify-center gap-6 md:gap-12 lg:gap-20 mb-6 md:mb-8">
-        {members.map((member, i) => (
-          <img
-            key={i}
-            src={imageMap[member.filename] ?? ""}
-            alt={member.name}
-            className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-            onClick={() => handleImageClick(member.filename)}
-          />
-        ))}
-      </div>
+        {/* Names below photos */}
+        <div className="text-center mb-3 md:mb-4">
+          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
+            {volunteerCoordinators.map(m => m.name).join(" & ")}
+          </div>
+        </div>
 
-      {/* Names below photos */}
-      <div className="text-center mb-3 md:mb-4">
-        <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
-          {members.map(m => m.name).join(" & ")}
+        {/* Title below */}
+        <div className="text-center">
+          <div className="text-sm md:text-base text-[#075a77]">
+            Volunteer Co-Coordinators
+          </div>
         </div>
       </div>
 
-      {/* Titles at bottom */}
-      <div className="text-center">
-        <div className="text-sm md:text-base text-[#075a77]">
-          {members[0]?.title}
+      {/* Marketing Co-Directors */}
+      <div className="flex flex-col items-center">
+        {/* Photos side by side */}
+        <div className="flex justify-center gap-6 md:gap-12 lg:gap-20 mb-6 md:mb-8">
+          {marketingCoDirectors.map((member, i) => (
+            <img
+              key={i}
+              src={imageMap[member.filename] ?? ""}
+              alt={member.name}
+              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              onClick={() => handleImageClick(member.filename)}
+            />
+          ))}
+        </div>
+
+        {/* Names below photos */}
+        <div className="text-center mb-3 md:mb-4">
+          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
+            {marketingCoDirectors.map(m => m.name).join(" & ")}
+          </div>
+        </div>
+
+        {/* Title below */}
+        <div className="text-center">
+          <div className="text-sm md:text-base text-[#075a77]">
+            Marketing Co-Directors
+          </div>
         </div>
       </div>
     </div>
@@ -157,17 +185,14 @@ export default function Team() {
         Our Team
       </h1>
 
-      {/* Top Row - 4 people (Huda, Malak, Zoya, Ameera) */}
+      {/* First Line - 4 people (Huda, Malak, Zoya, Ameera) */}
       {renderRow(topLineTeam)}
 
-      {/* Bottom Row - 3 people (Ahmed, Mahmoud, Lola) */}
+      {/* Second Line - Volunteer Co-Coordinators & Marketing Co-Directors */}
+      {renderCoordinatorSection()}
+
+      {/* Last Line - 3 people (Ahmed, Mahmoud, Lola) */}
       {renderBottomRow(bottomLineTeam)}
-
-      {/* Volunteer Co-Coordinators Section */}
-      {renderDuoSectionNew(volunteerCoordinators, "VOLUNTEER CO-COORDINATORS")}
-
-      {/* Marketing Co-Directors Section */}
-      {renderDuoSectionNew(marketingCoDirectors, "MARKETING CO-DIRECTORS")}
     </div>
   );
 }
