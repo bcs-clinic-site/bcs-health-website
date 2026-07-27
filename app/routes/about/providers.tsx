@@ -149,9 +149,21 @@ export default function Providers() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-8 md:mb-12">
           Bait Ul Naeem: House of Ease
         </h2>
+
+        {/* Names on one line - TOP */}
+        <div className="text-center mb-3">
+          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
+            Sarah Kakwan & Zuha Aijaz
+          </div>
+        </div>
         
+        {/* Shared subtitle "Co-Leads" - BOTTOM */}
+        <div className="text-xs sm:text-sm text-[#075a77] mb-8 md:mb-12 text-center">
+          Co-Leads
+        </div>
+
         {/* Photos side by side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center mb-8 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
           {baitUlNaeemCoLeads.map((provider, idx) => (
             <img
               key={idx}
@@ -161,18 +173,6 @@ export default function Providers() {
               onClick={() => handleImageClick("bait", idx)}
             />
           ))}
-        </div>
-
-        {/* Shared subtitle "Co-Leads" */}
-        <div className="text-xs sm:text-sm text-[#075a77] mb-3 text-center">
-          Co-Leads
-        </div>
-
-        {/* Names on one line */}
-        <div className="text-center">
-          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
-            Sarah Kakwan & Zuha Aijaz
-          </div>
         </div>
       </div>
 
