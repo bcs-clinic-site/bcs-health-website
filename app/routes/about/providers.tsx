@@ -33,7 +33,7 @@ const monthlyClinic: Provider[] = [
   { filename: "Tazeen Abbas.png", name: "Dr. Tazeen Abbas", title: "TBD" },
 ];
 
-const baitUlNaeem: Provider[] = [
+const baitUlNaeemCoLeads: Provider[] = [
   { filename: "Sarah Kakwan.png", name: "Sarah Kakwan", title: "Co-Lead" },
   { filename: "Zuha Aijaz.png", name: "Zuha Aijaz", title: "Co-Lead" },
 ];
@@ -53,7 +53,7 @@ export default function Providers() {
   const getSectionImages = (section: string) => {
     let providers: Provider[] = [];
     if (section === "monthly") providers = monthlyClinic;
-    else if (section === "bait") providers = baitUlNaeem;
+    else if (section === "bait") providers = baitUlNaeemCoLeads;
     else if (section === "irshad") providers = irshadAlAafiyah;
     else if (section === "amanah") providers = amanah;
     return providers.map(p => ({ id: p.filename, url: imageMap[p.filename], name: p.name }));
@@ -105,9 +105,9 @@ export default function Providers() {
       {/* Note */}
       <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
         <p className="text-sm md:text-base text-[#0077b6] italic">
-          <span className="font-semibold">Please note:</span> Provider availability at Monthly Clinics may vary. For more information on which providers will be available at the next clinic, visit our{" "}
+          <span className="font-semibold">Please note:</span> Provider availability at Monthly Clinics may vary. For more information on which providers will be available at the next clinic, visit our
           <a href="/services/schedule" className="underline hover:text-primary">
-            Schedule/News page
+            {" "}Schedule/News page
           </a>
           .
         </p>
@@ -144,22 +144,27 @@ export default function Providers() {
         </div>
       </div>
 
-      {/* Bait Ul Naeem - Centered */}
-      <div className="flex flex-col items-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-8 md:mb-12">
-          BAIT UL NAEEM: HOUSE OF EASE
-        </h2>
-
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
-            {baitUlNaeem.map((provider, idx) => (
-              <ProviderCard
-                key={idx}
-                provider={provider}
+      {/* Bait Ul Naeem Co-Leads Section */}
+      <div className="flex flex-col items-center space-y-6 mt-8 md:mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
+          {baitUlNaeemCoLeads.map((provider, idx) => (
+            <div key={idx} className="flex flex-col items-center">
+              <img
+                src={imageMap[provider.filename] ?? ""}
+                alt={provider.name}
+                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={() => handleImageClick("bait", idx)}
               />
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-[Bebas_Neue] text-[#4a97b2] uppercase">
+            Bait Ul Naeem: House of Ease
+          </h2>
+          <p className="text-lg sm:text-xl text-[#075a77] font-[Bebas_Neue] mt-2">
+            {baitUlNaeemCoLeads.map(p => p.name).join(" & ")}
+          </p>
         </div>
       </div>
 
