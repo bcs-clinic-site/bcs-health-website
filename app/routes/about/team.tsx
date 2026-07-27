@@ -33,21 +33,21 @@ const topLineTeam: Member[] = [
 ];
 
 const bottomLineTeam: Member[] = [
-  { filename: "Ahmed Saleh.jpg", name: "Ahmed Saleh", title: "Community Outreach Director" },
-  { filename: "Mahmoud Rashid.jpg", name: "Mahmoud Rashid", title: "Logistics Director" },
+  { filename: "Ahmed.jpg", name: "Ahmed Saleh", title: "Community Outreach Director" },
+  { filename: "Mahmoud Rashid.png", name: "Mahmoud Rashid", title: "Logistics Director" },
   { filename: "Lola Sheims.png", name: "Lola Sheims", title: "Administrative Director" },
 ];
 
 // Volunteer co-coordinators (displayed separately)
 const volunteerCoordinators: Member[] = [
   { filename: "Sidrat-ul Muntaha.jpg", name: "Sidrat-ul Muntaha", title: "Volunteer Co-coordinator" },
-  { filename: "Doha Shehta.png", name: "Doha Shehta", title: "Volunteer Co-coordinator" },
+  { filename: "Doha Shehata.png", name: "Doha Shehata", title: "Volunteer Co-coordinator" },
 ];
 
 // Marketing co-directors (displayed separately)
 const marketingCoDirectors: Member[] = [
-  { filename: "Maryam Ahmed.jpg", name: "Maryam Pennino", title: "Marketing Co-Director" },
-  { filename: "Hadeeqah Qazi.jpg", name: "Hadeeqah Qazi", title: "Marketing Co-Director" },
+  { filename: "Maryam Pennino.png", name: "Maryam Pennino", title: "Marketing Co-Director" },
+  { filename: "Hadeeqah Qazi.png", name: "Hadeeqah Qazi", title: "Marketing Co-Director" },
 ];
 
 export default function Team() {
