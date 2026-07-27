@@ -25,11 +25,14 @@ Object.keys(images).forEach(path => {
 
 // Team members
 type Member = { filename: string; name: string; title: string };
-const regularTeam: Member[] = [
+const topLineTeam: Member[] = [
   { filename: "Huda.jpg", name: "Dr. Huda Naeem", title: "Medical Director" },
   { filename: "Malak.jpg", name: "Malak Ezzat", title: "Clinical Manager" },
   { filename: "Zoya Kareem.jpg", name: "Zoya Kareem", title: "Clinic Manager Assistant" },
   { filename: "Ameera.jpg", name: "Ameera Chan", title: "Finance Director" },
+];
+
+const bottomLineTeam: Member[] = [
   { filename: "Ahmed Saleh.jpg", name: "Ahmed Saleh", title: "Community Outreach Director" },
   { filename: "Mahmoud Rashid.jpg", name: "Mahmoud Rashid", title: "Logistics Director" },
   { filename: "Lola Sheims.png", name: "Lola Sheims", title: "Administrative Director" },
@@ -47,15 +50,11 @@ const marketingCoDirectors: Member[] = [
   { filename: "Hadeeqah Qazi.jpg", name: "Hadeeqah Qazi", title: "Marketing Co-Director" },
 ];
 
-// Split regular team into rows: 4, 3
-const firstRow = regularTeam.slice(0, 4);
-const secondRow = regularTeam.slice(4, 7);
-
 export default function Team() {
   const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
 
   // Build a master image list for the lightbox
-  const allImages = [...regularTeam, ...volunteerCoordinators, ...marketingCoDirectors].map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name }));
+  const allImages = [...topLineTeam, ...bottomLineTeam, ...volunteerCoordinators, ...marketingCoDirectors].map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name }));
 
   const handleImageClick = (memberFilename: string) => {
     const index = allImages.findIndex(img => img.id === memberFilename);
@@ -83,9 +82,9 @@ export default function Team() {
     </div>
   );
 
-  const renderDuoSection = (members: Member[], title: string) => (
-    <div className="flex flex-col items-center space-y-6 mt-8 md:mt-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
+  const renderBottomRow = (members: Member[]) => (
+    <div className="flex justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 lg:gap-20 justify-items-center">
         {members.map((member, i) => (
           <div key={i} className="flex flex-col items-center">
             <img
@@ -94,16 +93,50 @@ export default function Team() {
               className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
               onClick={() => handleImageClick(member.filename)}
             />
+            <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
+              {member.name}
+            </div>
+            <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
+              {member.title}
+            </div>
           </div>
         ))}
       </div>
-      <div className="text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-[Bebas_Neue] text-primary uppercase">
-          {title}
-        </h2>
-        <p className="text-lg sm:text-xl text-[#075a77] font-[Bebas_Neue] mt-2">
+    </div>
+  );
+
+  const renderDuoSectionNew = (members: Member[], title: string) => (
+    <div className="flex flex-col items-center">
+      {/* Title at top */}
+      <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-8 md:mb-12">
+        {title}
+      </h2>
+
+      {/* Photos side by side */}
+      <div className="flex justify-center gap-6 md:gap-12 lg:gap-20 mb-6 md:mb-8">
+        {members.map((member, i) => (
+          <img
+            key={i}
+            src={imageMap[member.filename] ?? ""}
+            alt={member.name}
+            className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+            onClick={() => handleImageClick(member.filename)}
+          />
+        ))}
+      </div>
+
+      {/* Names below photos */}
+      <div className="text-center mb-3 md:mb-4">
+        <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
           {members.map(m => m.name).join(" & ")}
-        </p>
+        </div>
+      </div>
+
+      {/* Titles at bottom */}
+      <div className="text-center">
+        <div className="text-sm md:text-base text-[#075a77]">
+          {members[0]?.title}
+        </div>
       </div>
     </div>
   );
@@ -124,36 +157,17 @@ export default function Team() {
         Our Team
       </h1>
 
-      {/* First Row - 4 people */}
-      {renderRow(firstRow)}
+      {/* Top Row - 4 people (Huda, Malak, Zoya, Ameera) */}
+      {renderRow(topLineTeam)}
 
-      {/* Second Row - 3 people (centered) */}
-      <div className="flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 lg:gap-20 justify-items-center">
-          {secondRow.map((member, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <img
-                src={imageMap[member.filename] ?? ""}
-                alt={member.name}
-                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-                onClick={() => handleImageClick(member.filename)}
-              />
-              <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
-                {member.name}
-              </div>
-              <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
-                {member.title}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Bottom Row - 3 people (Ahmed, Mahmoud, Lola) */}
+      {renderBottomRow(bottomLineTeam)}
 
       {/* Volunteer Co-Coordinators Section */}
-      {renderDuoSection(volunteerCoordinators, "Volunteer Co-Coordinators")}
+      {renderDuoSectionNew(volunteerCoordinators, "VOLUNTEER CO-COORDINATORS")}
 
       {/* Marketing Co-Directors Section */}
-      {renderDuoSection(marketingCoDirectors, "Marketing Co-Directors")}
+      {renderDuoSectionNew(marketingCoDirectors, "MARKETING CO-DIRECTORS")}
     </div>
   );
 }
