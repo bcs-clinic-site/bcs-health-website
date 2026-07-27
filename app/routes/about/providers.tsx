@@ -168,13 +168,11 @@ export default function Providers() {
           Co-Leads
         </div>
 
-        {/* Names side by side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
-          {baitUlNaeemCoLeads.map((provider, idx) => (
-            <div key={idx} className="font-[Bebas_Neue] text-primary text-lg md:text-xl text-center">
-              {provider.name}
-            </div>
-          ))}
+        {/* Names on one line */}
+        <div className="text-center">
+          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
+            Sarah Kakwan & Zuha Aijaz
+          </div>
         </div>
       </div>
 
