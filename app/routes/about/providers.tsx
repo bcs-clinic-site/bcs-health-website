@@ -30,7 +30,7 @@ const monthlyClinic: Provider[] = [
   { filename: "Adnanul Karim.jpg", name: "Dr. Adnanul Karim", title: "Internal Medicine, Pulmonology, Critical Care" },
   { filename: "Shafia Naeem.JPG", name: "PA. Shafia Naeem", title: "Urgent Care" },
   { filename: "Malak.jpg", name: "Malak Ezzat", title: "Student Doctor" },
-  { filename: "Tazeen Abbas.png", name: "Dr. Tazeen Abbas", title: "TBD" },
+  { filename: "Tazeen Abbas.png", name: "Dr. Tazeen Abbas", title: "ER Physician certified in emergency medicine and obesity medicine" },
 ];
 
 const baitUlNaeemCoLeads: Provider[] = [
@@ -145,13 +145,13 @@ export default function Providers() {
       </div>
 
       {/* Bait Ul Naeem Co-Leads Section */}
-      <div className="flex flex-col items-center space-y-8 mt-8 md:mt-12">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-[Bebas_Neue] text-[#4a97b2] uppercase">
+      <div className="flex flex-col items-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-8 md:mb-12">
           Bait Ul Naeem: House of Ease
         </h2>
         
         {/* Photos side by side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center mb-8 md:mb-12">
           {baitUlNaeemCoLeads.map((provider, idx) => (
             <img
               key={idx}
@@ -164,7 +164,7 @@ export default function Providers() {
         </div>
 
         {/* Shared subtitle "Co-Leads" */}
-        <div className="text-xs sm:text-sm text-[#075a77] font-semibold text-center">
+        <div className="text-xs sm:text-sm text-[#075a77] mb-3 text-center">
           Co-Leads
         </div>
 
