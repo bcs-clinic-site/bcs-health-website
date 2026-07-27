@@ -1,16 +1,14 @@
 "use client";
 
 import React from "react";
-import Heirarchy from '../../images/about/team/Heirarchy Chart Picture.png';
 import type { Route } from "../+types/home";
 import Lightbox from "../../components/lightbox";
-import { Link } from "react-router";
 
 // Metadata
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Providers - BCS Free Health Clinic" },
-    { name: "description", content: "BCS Free Health Clinic" },
+    { title: "Our Providers - BCS Free Health Clinic" },
+    { name: "description", content: "BCS Free Health Clinic Providers" },
   ];
 }
 
@@ -25,55 +23,66 @@ Object.keys(images).forEach(path => {
   imageMap[filename] = images[path].default;
 });
 
-// Top row: individual members
-type Member = { filename: string; name: string; title: string };
-const topRow: Member[] = [
-  { filename: "Huda Naeem.jpg", name: "Dr. Huda Naeem", title: "Medical Director" },
-  { filename: "Malak.jpg", name: "Malak Ezzat", title: "Clinical Manager" },
-  { filename: "Zoya Kareem.jpg", name: "Zoya Kareem", title: "Clinic Manager Assistant" },
-  { filename: "Ameera Chan.jpg", name: "Ameera Chan", title: "Finance Director" },
-];
+type Provider = { filename: string; name: string; title: string };
+type ProviderSection = { title: string; providers: Provider[] };
 
-// Bottom row: groups
-const secondRow: Member[] = [
-  { filename: "Sidrat-ul Muntaha.jpg", name: "Sidrat-ul Muntaha", title: "Volunteer Co-coordinator" },
-  { filename: "Doha Shehta.jpg", name: "Doha Shehta", title: "Volunteer Co-coordinator" },
-  { filename: "Ahmed Saleh.jpg", name: "Ahmed Saleh", title: "Community Outreach Director" }
-];
-
-const thirdRowA: Member[] = [
-  { filename: "Mahmoud Rashid.jpg", name: "Mahmoud Rashid", title: "Logistics Director" }
-];
-
-const thirdRowB: Member[] = [
-  { filename: "Lola Sheims.jpg", name: "Lola Sheims", title: "Administrative Director" }
-];
-
-const thirdRowC: Member[] = [
-  { filename: "Maryam Pennino.jpg", name: "Maryam Pennino", title: "Marketing Co-Director" },
-  { filename: "Hadeeqah Qazi.jpg", name: "Hadeeqah Qazi", title: "Marketing Co-Director" }
+const providerSections: ProviderSection[] = [
+  {
+    title: "MONTHLY CLINICS",
+    providers: [
+      { filename: "Huda Naeem.jpg", name: "Dr. Huda Naeem", title: "ER Medicine, Wilderness Medicine Fellowship" },
+      { filename: "Adnanul Karim.jpg", name: "Dr. Adnanul Karim", title: "Internal Medicine, Pulmonology, Critical Care" },
+      { filename: "Shafia Naeem.jpg", name: "PA. Shafia Naeem", title: "Urgent Care" },
+      { filename: "Malak.jpg", name: "Malak Ezzat", title: "Student Doctor" },
+      { filename: "Tazeen Abbas.png", name: "Dr. Tazeen Abbas", title: "TBD" },
+    ],
+  },
+  {
+    title: "BAIT UL NAEEM: HOUSE OF EASE",
+    providers: [
+      { filename: "Sarah Kakwan.png", name: "Sarah Kakwan", title: "Co-Lead" },
+      { filename: "Zuha Aijaz.png", name: "Zuha Aijaz", title: "Co-Lead" },
+    ],
+  },
+  {
+    title: "IRSHAD AL-AAFIYAH",
+    providers: [
+      { filename: "Irshad.jpg", name: "Dr. Fariha Irshad", title: "Nutritionist and Food Scientist" },
+    ],
+  },
+  {
+    title: "AMANAH",
+    providers: [
+      { filename: "Maryam Ahmed.jpg", name: "Dr. Maryam Ahmed", title: "Licensed Professional Counselor" },
+    ],
+  },
 ];
 
 export default function Providers() {
   const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
+  const [lightboxSection, setLightboxSection] = React.useState<number | null>(null);
 
-  // Build a master image list for the lightbox
-  const allImages = [
-    ...topRow.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name })),
-    ...secondRow.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name })),
-    ...thirdRowA.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name })),
-    ...thirdRowB.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name })),
-    ...thirdRowC.map(m => ({ id: m.filename, url: imageMap[m.filename], name: m.name }))
-  ];
+  const currentSection = lightboxSection !== null ? providerSections[lightboxSection] : null;
+  const allImages = currentSection
+    ? currentSection.providers.map(p => ({ id: p.filename, url: imageMap[p.filename], name: p.name }))
+    : [];
+
+  const handleImageClick = (sectionIndex: number, providerIndex: number) => {
+    setLightboxSection(sectionIndex);
+    setLightboxIndex(providerIndex);
+  };
 
   return (
     <div className="flex flex-col space-y-8 md:space-y-12 px-4 md:px-8">
       {/* Lightbox */}
-      {lightboxIndex !== null && (
+      {lightboxIndex !== null && currentSection && (
         <Lightbox
           images={allImages}
           index={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
+          onClose={() => {
+            setLightboxIndex(null);
+            setLightboxSection(null);
+          }}
           onNavigate={(newIndex) => setLightboxIndex(newIndex)}
         />
       )}
@@ -81,155 +90,46 @@ export default function Providers() {
       <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-8 md:mt-12 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
         Our Providers
       </h1>
-      
-      <p className="text-[#075a77] text-center text-base sm:text-lg md:text-xl px-4 sm:px-8 md:px-24 lg:px-48">
-        <i>
-          <strong>Please note</strong>: Provider availability at Monthly Clinics may vary. For more information on which providers will be available at the next clinic, visit our{" "}
-          <Link className="underline hover:text-[#dd73b5] transition-all duration-200" to="/services/schedule">
-            <strong>Schedule/News</strong>
-          </Link> page.
-        </i>
-      </p>
 
-      {/* Monthly Clinics - Top Row */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#4a97b2] mt-4 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
-        Monthly Clinics
-      </h1>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-20 justify-items-center max-w-7xl mx-auto">
-        {topRow.map((member, i) => (
-          <div key={i} className="flex flex-col items-center">
-            <img
-              src={imageMap[member.filename] ?? ""}
-              alt={member.name}
-              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-              onClick={() => {
-                const index = allImages.findIndex(img => img.id === member.filename);
-                setLightboxIndex(index);
-              }}
-            />
-            <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
-              {member.name}
-            </div>
-            <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
-              {member.title}
+      {/* Note */}
+      <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
+        <p className="text-sm md:text-base text-[#0077b6] italic">
+          <span className="font-semibold">Please note:</span> Provider availability at Monthly Clinics may vary. For more information on which providers will be available at the next clinic, visit our{" "}
+          <a href="/services/schedule" className="underline hover:text-primary">
+            Schedule/News page
+          </a>
+          .
+        </p>
+      </div>
+
+      {/* Provider Sections */}
+      <div className="space-y-12 md:space-y-16">
+        {providerSections.map((section, sectionIndex) => (
+          <div key={sectionIndex} className="flex flex-col items-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-[#4a97b2] font-[Bebas_Neue] mb-8 md:mb-12">
+              {section.title}
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 justify-items-center max-w-6xl">
+              {section.providers.map((provider, providerIndex) => (
+                <div key={providerIndex} className="flex flex-col items-center">
+                  <img
+                    src={imageMap[provider.filename] ?? ""}
+                    alt={provider.name}
+                    className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                    onClick={() => handleImageClick(sectionIndex, providerIndex)}
+                  />
+                  <div className="mt-3 font-[Bebas_Neue] text-primary text-lg md:text-xl text-center">
+                    {provider.name}
+                  </div>
+                  <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
+                    {provider.title}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Bait Ul Naeem - Bottom Row */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#4a97b2] mt-4 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
-        Bait Ul Naeem: House of Ease
-      </h1>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 lg:gap-20 justify-items-center max-w-6xl mx-auto">
-        {secondRow.map((member, i) => (
-          <div key={i} className="flex flex-col items-center">
-            <img
-              src={imageMap[member.filename] ?? ""}
-              alt={member.name}
-              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-              onClick={() => {
-                const index = allImages.findIndex(img => img.id === member.filename);
-                setLightboxIndex(index);
-              }}
-            />
-            <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
-              {member.name}
-            </div>
-            <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
-              {member.title}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Third Row */}
-      <div className="flex flex-col lg:flex-row justify-center gap-8 lg:gap-32 items-start">
-        {/* Group 1 - Logistics */}
-        <div className="flex flex-col items-center w-full lg:w-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#4a97b2] mt-4 mb-6 font-[Bebas_Neue] text-center">
-            Logistics
-          </h1>
-          <div className="flex gap-8 flex-wrap justify-center">
-            {thirdRowA.map((member, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <img
-                  src={imageMap[member.filename] ?? ""}
-                  alt={member.name}
-                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-                  onClick={() => {
-                    const index = allImages.findIndex(img => img.id === member.filename);
-                    setLightboxIndex(index);
-                  }}
-                />
-                <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
-                  {member.name}
-                </div>
-                <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
-                  {member.title}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Group 2 - Administration */}
-        <div className="flex flex-col items-center w-full lg:w-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#4a97b2] mt-4 mb-6 font-[Bebas_Neue] text-center">
-            Administration
-          </h1>
-          <div className="flex gap-8 flex-wrap justify-center">
-            {thirdRowB.map((member, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <img
-                  src={imageMap[member.filename] ?? ""}
-                  alt={member.name}
-                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-                  onClick={() => {
-                    const index = allImages.findIndex(img => img.id === member.filename);
-                    setLightboxIndex(index);
-                  }}
-                />
-                <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
-                  {member.name}
-                </div>
-                <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
-                  {member.title}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Group 3 - Marketing */}
-        <div className="flex flex-col items-center w-full lg:w-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#4a97b2] mt-4 mb-6 font-[Bebas_Neue] text-center">
-            Marketing
-          </h1>
-          <div className="flex gap-8 flex-wrap justify-center">
-            {thirdRowC.map((member, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <img
-                  src={imageMap[member.filename] ?? ""}
-                  alt={member.name}
-                  className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-                  onClick={() => {
-                    const index = allImages.findIndex(img => img.id === member.filename);
-                    setLightboxIndex(index);
-                  }}
-                />
-                <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
-                  {member.name}
-                </div>
-                <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
-                  {member.title}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
