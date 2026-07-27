@@ -150,29 +150,15 @@ export default function Providers() {
           Bait Ul Naeem: House of Ease
         </h2>
 
-        {/* Names on one line - TOP */}
-        <div className="text-center mb-8 md:mb-12">
-          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
-            Sarah Kakwan & Zuha Aijaz
-          </div>
-        </div>
-
-        {/* Photos side by side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center mb-3">
+        {/* Photos with names and titles below - like provider cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
           {baitUlNaeemCoLeads.map((provider, idx) => (
-            <img
+            <ProviderCard
               key={idx}
-              src={imageMap[provider.filename] ?? ""}
-              alt={provider.name}
-              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              provider={provider}
               onClick={() => handleImageClick("bait", idx)}
             />
           ))}
-        </div>
-
-        {/* Shared subtitle "Co-Leads" - UNDER PHOTOS */}
-        <div className="text-xs sm:text-sm text-[#075a77] text-center">
-          Co-Leads
         </div>
       </div>
 
