@@ -5,8 +5,6 @@ import topPhoto from '../../images/services/monthly/Top Photo.png';
 import { Button } from "~/components/ui/button";
 import type { Route } from "../+types/home";
 import Lightbox from "../../components/lightbox"; // adjust path if needed
-import getPictures from "~/components/getPictures";
-import Gallery from "~/components/gallery";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -28,44 +26,42 @@ Object.keys(images).forEach((path) => {
 
 
 export default function Appointments() {
-  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
 
-  // Build an array of images for Lightbox
-  const allImages = Object.entries(imageMap).map(([filename, src]) => ({
-    id: filename,
-    url: src,
-    name: filename.replace(/\.(png|jpg|jpeg|svg)$/i, ""),
-  }));
+  // Build an array of images for Lightbox
+  const allImages = Object.entries(imageMap).map(([filename, src]) => ({
+    id: filename,
+    url: src,
+    name: filename.replace(/\.(png|jpg|jpeg|svg)$/i, ""),
+  }));
 
-const imagesGallery = getPictures("clinic");
+  return (
+    <div className="mt-16">
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={allImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(newIndex) => setLightboxIndex(newIndex)}
+        />
+      )}
 
-  return (
-    <div className="mt-16">
-      {/* Lightbox */}
-      {lightboxIndex !== null && (
-        <Lightbox
-          images={allImages}
-          index={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-          onNavigate={(newIndex) => setLightboxIndex(newIndex)}
-        />
-      )}
+      {/* FIX 1 APPLIED: Replaced mx-32 with responsive padding for the title */}
+      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mb-16 px-4 sm:px-8 md:px-16 font-[Bebas_Neue] text-center">Monthly Clinic Registration</h1>
 
-      {/* FIX 1 APPLIED: Replaced mx-32 with responsive padding for the title */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mb-16 px-4 sm:px-8 md:px-16 font-[Bebas_Neue] text-center">Monthly Clinic Registration</h1>
+      <img
+        src={topPhoto}
+        alt={"Top Photo"}
+        className="object-cover m-auto mt-10"
+        onClick={() => {
+          // Add topPhoto to lightbox dynamically if needed
+          const index = allImages.findIndex(img => img.url === topPhoto);
+          if (index >= 0) setLightboxIndex(index);
+        }}
+      />
 
-      <img
-        src={topPhoto}
-        alt={"Top Photo"}
-        className="object-cover m-auto mt-10"
-        onClick={() => {
-          // Add topPhoto to lightbox dynamically if needed
-          const index = allImages.findIndex(img => img.url === topPhoto);
-          if (index >= 0) setLightboxIndex(index);
-        }}
-      />
-
-      <div className="flex justify-center px-4 sm:px-6 lg:px-8 mt-4">
+      <div className="flex justify-center px-4 sm:px-6 lg:px-8 mt-4">
   <div className="max-w-4xl w-full">
     <p className="text-primary text-lg">
       At BCS Free Health Clinic, we make it easy for you to receive the quality care you deserve from our compassionate and highly qualified doctors. Appointments must be scheduled online to see our physicians and specialists.
@@ -97,35 +93,22 @@ const imagesGallery = getPictures("clinic");
   </div>
 </div>
 
-      {/* FIX 2 APPLIED: Responsive margin on the grid container */}
-      <div className="flex flex-wrap justify-center gap-6 px-4 sm:px-8 md:mx-32 mt-16">
-        {allImages.map((img, i) => (
-          <figure key={img.id} className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] cursor-pointer">
-            <img
-              src={img.url}
-              alt={img.name}
-              className="rounded-lg shadow-md object-contain w-full h-auto transform transition-transform duration-300 hover:scale-105"
-              onClick={() => setLightboxIndex(i)}
-            />
-            <figcaption className="text-center text-primary text-md mt-2">
-              {img.name}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-
-      <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary mt-16 md:mt-24 mb-8 md:mb-16 mx-4 md:mx-32 font-[Bebas_Neue] text-center">
-          Clinic Gallery
-        </h1>
-
-        <hr className = "mb-16 md:mb-24"></hr>
-        {imagesGallery ? (
-          <Gallery data={imagesGallery} />
-        ) : (
-          <p className="mx-4 sm:mx-8 md:mx-32 lg:mx-48 mt-8 text-primary text-base sm:text-lg max-w-7xl text-center">
-            Loading Gallery, please wait...
-          </p>
-        )}
-    </div>
-  );
+      {/* FIX 2 APPLIED: Responsive margin on the grid container */}
+      <div className="flex flex-wrap justify-center gap-6 px-4 sm:px-8 md:mx-32 mt-16">
+        {allImages.map((img, i) => (
+          <figure key={img.id} className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] cursor-pointer">
+            <img
+              src={img.url}
+              alt={img.name}
+              className="rounded-lg shadow-md object-contain w-full h-auto transform transition-transform duration-300 hover:scale-105"
+              onClick={() => setLightboxIndex(i)}
+            />
+            <figcaption className="text-center text-primary text-md mt-2">
+              {img.name}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  );
 }
