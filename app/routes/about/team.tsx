@@ -33,9 +33,9 @@ const teamMembers: Member[] = [
   { filename: "Sidrat-ul Muntaha.jpg", name: "Sidrat-ul Muntaha", title: "Volunteer Co-coordinator" },
   { filename: "Doha Shehta.png", name: "Doha Shehta", title: "Volunteer Co-coordinator" },
   { filename: "Ahmed Saleh.jpg", name: "Ahmed Saleh", title: "Community Outreach Director" },
-  { filename: "Mahmoud Rashi.jpg", name: "Mahmoud Rashid", title: "Logistics Director" },
+  { filename: "Mahmoud Rashid.jpg", name: "Mahmoud Rashid", title: "Logistics Director" },
   { filename: "Lola Sheims.png", name: "Lola Sheims", title: "Administrative Director" },
-  { filename: "Maryam Pennino.jpg", name: "Maryam Pennino", title: "Marketing Co-Director" },
+  { filename: "Maryam Ahmed.jpg", name: "Maryam Pennino", title: "Marketing Co-Director" },
   { filename: "Hadeeqah Qazi.jpg", name: "Hadeeqah Qazi", title: "Marketing Co-Director" },
 ];
 
