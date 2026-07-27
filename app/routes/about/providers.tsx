@@ -146,6 +146,9 @@ export default function Providers() {
 
       {/* Bait Ul Naeem Co-Leads Section */}
       <div className="flex flex-col items-center space-y-6 mt-8 md:mt-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-[Bebas_Neue] text-[#4a97b2] uppercase">
+          Bait Ul Naeem: House of Ease
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
           {baitUlNaeemCoLeads.map((provider, idx) => (
             <div key={idx} className="flex flex-col items-center">
@@ -155,16 +158,14 @@ export default function Providers() {
                 className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
                 onClick={() => handleImageClick("bait", idx)}
               />
+              <div className="mt-3 font-[Bebas_Neue] text-primary text-lg md:text-xl text-center">
+                {provider.name}
+              </div>
+              <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
+                {provider.title}
+              </div>
             </div>
           ))}
-        </div>
-        <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-[Bebas_Neue] text-[#4a97b2] uppercase">
-            Bait Ul Naeem: House of Ease
-          </h2>
-          <p className="text-lg sm:text-xl text-[#075a77] font-[Bebas_Neue] mt-2">
-            {baitUlNaeemCoLeads.map(p => p.name).join(" & ")}
-          </p>
         </div>
       </div>
 
