@@ -151,19 +151,14 @@ export default function Providers() {
         </h2>
 
         {/* Names on one line - TOP */}
-        <div className="text-center mb-3">
+        <div className="text-center mb-8 md:mb-12">
           <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
             Sarah Kakwan & Zuha Aijaz
           </div>
         </div>
-        
-        {/* Shared subtitle "Co-Leads" - BOTTOM */}
-        <div className="text-xs sm:text-sm text-[#075a77] mb-8 md:mb-12 text-center">
-          Co-Leads
-        </div>
 
         {/* Photos side by side */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 lg:gap-20 justify-items-center mb-3">
           {baitUlNaeemCoLeads.map((provider, idx) => (
             <img
               key={idx}
@@ -173,6 +168,11 @@ export default function Providers() {
               onClick={() => handleImageClick("bait", idx)}
             />
           ))}
+        </div>
+
+        {/* Shared subtitle "Co-Leads" - UNDER PHOTOS */}
+        <div className="text-xs sm:text-sm text-[#075a77] text-center">
+          Co-Leads
         </div>
       </div>
 
