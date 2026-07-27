@@ -30,28 +30,28 @@ export default function Home() {
 
       {/* Button container overlay */}
       <div className="absolute bottom-0 left-1/2 scale-75 md:scale-100 transform -translate-x-1/2 translate-y-3/5 md:translate-y-1/2 flex flex-row flex-wrap md:flex-nowrap justify-center gap-2 md:gap-4 font-[Arial_MT_Pro] px-4 md:px-0 w-full md:w-auto max-w-md md:max-w-none">
-        <a href="/contact" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
-          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
-            Contact Us
-          </Button>
-        </a>
-        <a href="https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
-          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
-            Book An Appointment
-          </Button>
-        </a>
-        <a href="/involved/volunteer" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
-          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
-            Volunteer
-          </Button>
-        </a>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=F3K522QF32P5L" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
-          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
-            Donate
-          </Button>
-        </a>
-      </div>
-    </div>
+        <a href="/contact" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Contact Us
+          </Button>
+        </a>
+        <a href="https://provider.click4md.com/schedule/OTNEb2NaODFRMXJPRUVUZWN4R2RpUT09" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Book An Appointment
+          </Button>
+        </a>
+        <a href="/involved/volunteer" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Volunteer
+          </Button>
+        </a>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=F3K522QF32P5L" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[calc(50%-0.25rem)] md:min-w-0 md:flex-none md:w-auto">
+          <Button size="lg" variant="secondary" className="bg-primary text-white hover:bg-[#dd73b5] w-full md:w-52 h-14 md:h-24 text-xs md:text-lg cursor-pointer">
+            Donate
+          </Button>
+        </a>
+      </div>
+    </div>
 
     <div id="About">
       <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-24 sm:mt-24 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue]">
@@ -129,14 +129,14 @@ export default function Home() {
         </div>
 
         <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
-          <img src={volunteering} alt="Immanah" className="w-full" />
+          <img src={volunteering} alt="Amanah" className="w-full" />
           <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
-            Immanah
+            Amanah
           </h1>
           <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
-            More details coming on our new mental health program in October 2026, In'Sha Allah.
+            A mental health program designed to support emotional and mental well-being as part of holistic health care.
           </div>
-          <a href="/services/ammanah" rel="noopener noreferrer">
+          <a href="/services/amanah" rel="noopener noreferrer">
             <Button
               size="sm"
               variant="secondary"
