@@ -28,7 +28,7 @@ type Provider = { filename: string; name: string; title: string };
 const monthlyClinic: Provider[] = [
   { filename: "Huda Naeem.jpg", name: "Dr. Huda Naeem", title: "ER Medicine, Wilderness Medicine Fellowship" },
   { filename: "Adnanul Karim.jpg", name: "Dr. Adnanul Karim", title: "Internal Medicine, Pulmonology, Critical Care" },
-  { filename: "Shafia Naeem.jpg", name: "PA. Shafia Naeem", title: "Urgent Care" },
+  { filename: "Shafia Naeem.JPG", name: "PA. Shafia Naeem", title: "Urgent Care" },
   { filename: "Malak.jpg", name: "Malak Ezzat", title: "Student Doctor" },
   { filename: "Tazeen Abbas.png", name: "Dr. Tazeen Abbas", title: "TBD" },
 ];
@@ -43,7 +43,7 @@ const irshadAlAafiyah: Provider[] = [
 ];
 
 const amanah: Provider[] = [
-  { filename: "Maryam Ahmed.jpg", name: "Dr. Maryam Ahmed", title: "Licensed Professional Counselor" },
+  { filename: "Maryam Ahmed.jpg", name: "Maryam Ahmed", title: "Licensed Professional Counselor" },
 ];
 
 export default function Providers() {
