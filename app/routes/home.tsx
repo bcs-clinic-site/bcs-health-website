@@ -70,77 +70,85 @@ export default function Home() {
       <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-16 sm:mt-20 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue]">
         Our Services
       </h1>
-      <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 mx-2 sm:mx-4 md:mx-8 lg:mx-18 mt-8 gap-4 sm:gap-3 md:gap-2 px-2 sm:px-4 md:px-8 lg:px-16">
-        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
-          <img src={welcomeImg} alt="Monthly Clinics" className="w-full" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+      <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 mx-auto max-w-7xl px-4 sm:px-4 md:px-8 lg:px-16 mt-8">
+        {/* Monthly Clinics */}
+        <div className="flex flex-col items-center h-full">
+          <div className="w-full aspect-square overflow-hidden rounded">
+            <img src={welcomeImg} alt="Monthly Clinics" className="w-full h-full object-cover" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-[#075a77] mt-6 md:mt-8 text-center font-[Bebas_Neue]">
             Monthly Clinics
           </h1>
-          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+          <div className="mt-4 md:mt-6 text-xs sm:text-sm md:text-base font-[Arial_MT_Pro] text-primary text-center flex-grow">
             Held on the final Saturday of each month, the Monthly Clinic offers scheduled appointments for a range of primary health care needs.
           </div>
-          <a href="/services/appointments" rel="noopener noreferrer">
+          <a href="/services/appointments" rel="noopener noreferrer" className="mt-4 md:mt-6 w-full">
             <Button
               size="sm"
-              variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-40 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="bg-primary text-white hover:bg-[#dd73b5] w-full h-10 md:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Learn More
             </Button>
           </a>
         </div>
         
-        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
-          <img src={chairs} alt="Bait ul Naeem" className="w-full" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+        {/* Bait ul Naeem */}
+        <div className="flex flex-col items-center h-full">
+          <div className="w-full aspect-square overflow-hidden rounded">
+            <img src={chairs} alt="Bait ul Naeem" className="w-full h-full object-cover" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-[#075a77] mt-6 md:mt-8 text-center font-[Bebas_Neue]">
             Bait ul naeem
           </h1>
-          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+          <div className="mt-4 md:mt-6 text-xs sm:text-sm md:text-base font-[Arial_MT_Pro] text-primary text-center flex-grow">
             A dedicated women & maternal health program designed to support our sisters through pregnancy and early motherhood.
           </div>
-          <a href="/services/bait-ul-naeem" rel="noopener noreferrer">
+          <a href="/services/bait-ul-naeem" rel="noopener noreferrer" className="mt-4 md:mt-6 w-full">
             <Button
               size="sm"
-              variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-40 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="bg-primary text-white hover:bg-[#dd73b5] w-full h-10 md:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Learn More
             </Button>
           </a>
         </div>
 
-        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
-          <img src={table} alt="Irshad Al Aafiyah" className="w-full" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+        {/* Irshad Al Aafiyah */}
+        <div className="flex flex-col items-center h-full">
+          <div className="w-full aspect-square overflow-hidden rounded">
+            <img src={table} alt="Irshad Al Aafiyah" className="w-full h-full object-cover" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-[#075a77] mt-6 md:mt-8 text-center font-[Bebas_Neue]">
             irshad al aafiyah
           </h1>
-          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+          <div className="mt-4 md:mt-6 text-xs sm:text-sm md:text-base font-[Arial_MT_Pro] text-primary text-center flex-grow">
             Customized nutritional counseling to help our community make informed dietary choices for better health.
           </div>
-          <a href="/services/irshad" rel="noopener noreferrer">
+          <a href="/services/irshad" rel="noopener noreferrer" className="mt-4 md:mt-6 w-full">
             <Button
               size="sm"
-              variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-40 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="bg-primary text-white hover:bg-[#dd73b5] w-full h-10 md:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Learn More
             </Button>
           </a>
         </div>
 
-        <div className="w-full p-1 sm:p-[5px] flex flex-col items-center">
-          <img src={volunteering} alt="Amanah" className="w-full" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#075a77] mt-8 sm:mt-16 md:mt-24 text-center font-[Bebas_Neue]">
+        {/* Amanah */}
+        <div className="flex flex-col items-center h-full">
+          <div className="w-full aspect-square overflow-hidden rounded">
+            <img src={volunteering} alt="Amanah" className="w-full h-full object-cover" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-[#075a77] mt-6 md:mt-8 text-center font-[Bebas_Neue]">
             Amanah
           </h1>
-          <div className="mt-4 sm:mt-6 md:mt-8 mx-4 sm:mx-6 md:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center flex-1">
+          <div className="mt-4 md:mt-6 text-xs sm:text-sm md:text-base font-[Arial_MT_Pro] text-primary text-center flex-grow">
             A mental health program designed to support emotional and mental well-being as part of holistic health care.
           </div>
-          <a href="/services/amanah" rel="noopener noreferrer">
+          <a href="/services/amanah" rel="noopener noreferrer" className="mt-4 md:mt-6 w-full">
             <Button
               size="sm"
-              variant="secondary"
-              className="mt-4 sm:mt-6 bg-primary text-white hover:bg-[#dd73b5] w-48 sm:w-56 md:w-40 h-10 sm:h-12 text-xs sm:text-sm justify-center cursor-pointer"
+              className="bg-primary text-white hover:bg-[#dd73b5] w-full h-10 md:h-12 text-xs sm:text-sm justify-center cursor-pointer"
             >
               Learn More
             </Button>
