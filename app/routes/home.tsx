@@ -54,7 +54,7 @@ export default function Home() {
     </div>
 
     <div id="About">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-24 sm:mt-24 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue]">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-24 sm:mt-24 md:mt-24 font-[Bebas_Neue] text-center">
         About BCS FHC
       </h1>
       <div className="mt-6 sm:mt-8 mx-4 sm:mx-8 md:mx-12 lg:mx-24 mb-16 sm:mb-24 text-base sm:text-lg md:text-xl lg:text-[1.7rem] font-[Arial_MT_Pro] text-primary px-4 sm:px-8 md:px-12 lg:px-24">
@@ -67,7 +67,7 @@ export default function Home() {
     </div>
 
     <div id="Services">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-16 sm:mt-20 md:mt-24 mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue]">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mt-16 sm:mt-20 md:mt-24 font-[Bebas_Neue] text-center">
         Our Services
       </h1>
       <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 mx-auto max-w-7xl px-4 sm:px-4 md:px-8 lg:px-16 mt-8">
@@ -159,7 +159,7 @@ export default function Home() {
       <QuoteCarousel />
 
       <div id="review">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary mx-4 sm:mx-12 md:mx-36 font-[Bebas_Neue] text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl text-primary font-[Bebas_Neue] text-center">
           Want to leave us a review?
         </h1>
         <div className="mt-6 sm:mt-8 mx-4 sm:mx-8 text-sm sm:text-base font-[Arial_MT_Pro] text-primary text-center">
