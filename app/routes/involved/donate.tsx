@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import type { Route } from "../+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -9,21 +9,6 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Donate() {
-  useEffect(() => {
-    // Inject Donorbox script on mount
-    const script = document.createElement("script");
-    script.src = "https://donorbox.org/widget.js";
-    script.async = true;
-    script.setAttribute("paypalExpress", "false");
-    document.body.appendChild(script);
-
-    return () => {
-      // optional: remove script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
 
   return (
     <div>
@@ -51,26 +36,23 @@ export default function Donate() {
         </p>
       </div>
 
-      {/* Donorbox iframe embed: Responsive sizing for the container */}
+      {/* Zeffy donation form embed */}
       <div
-        className="w-full flex justify-center mb-8 height-80vh sm:height-70vh"
+        className="w-full flex justify-center mb-8"
         style={{
           maxWidth: "500px",
           margin: "0 auto 2rem",
-          overflow: "hidden", // Prevents overflow issues
-          // Responsive height strategy:
-          minHeight: "400px", // Ensure minimum size on small screens
+          overflow: "hidden",
+          minHeight: "400px",
         }}
       >
         <iframe
-          src="https://donorbox.org/embed/support-the-bcs-free-health-clinic?"
-          name="donorbox"
-          allowPaymentRequest="true"
+          src="https://www.zeffy.com/en-US/embed/donation-form/donate-to-the-free-health-clinic"
+          title="Zeffy Donation Form"
           scrolling="no"
           frameBorder="0"
           width="100%"
-          // Set iframe height to 100% of its parent div
-          height="100%" 
+          height="100%"
           style={{
             maxHeight: "none",
           }}
