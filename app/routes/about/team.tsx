@@ -105,67 +105,38 @@ export default function Team() {
     </div>
   );
 
+  const renderPair = (members: Member[], sharedTitle: string) => (
+    <div className="flex flex-col items-center">
+      {/* Photos side by side – gap and size scale down on narrow phones */}
+      <div className="flex justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-20 mb-4 md:mb-6">
+        {members.map((member, i) => (
+          <div key={i} className="flex flex-col items-center">
+            <img
+              src={imageMap[member.filename] ?? ""}
+              alt={member.name}
+              className="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              onClick={() => handleImageClick(member.filename)}
+            />
+            <div className="mt-2 font-[Bebas_Neue] text-primary text-sm sm:text-base md:text-lg text-center break-words max-w-[6rem] sm:max-w-[8rem] md:max-w-[9rem]">
+              {member.name}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Shared role title */}
+      <div className="text-center">
+        <div className="text-xs sm:text-sm md:text-base text-[#075a77]">
+          {sharedTitle}
+        </div>
+      </div>
+    </div>
+  );
+
   const renderCoordinatorSection = () => (
-    <div className="flex flex-col lg:flex-row justify-center gap-12 lg:gap-24 items-start">
-      {/* Volunteer Co-Coordinators */}
-      <div className="flex flex-col items-center">
-        {/* Photos side by side */}
-        <div className="flex justify-center gap-6 md:gap-12 lg:gap-20 mb-6 md:mb-8">
-          {volunteerCoordinators.map((member, i) => (
-            <img
-              key={i}
-              src={imageMap[member.filename] ?? ""}
-              alt={member.name}
-              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-              onClick={() => handleImageClick(member.filename)}
-            />
-          ))}
-        </div>
-
-        {/* Names below photos */}
-        <div className="text-center mb-3 md:mb-4">
-          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
-            {volunteerCoordinators.map(m => m.name).join(" & ")}
-          </div>
-        </div>
-
-        {/* Title below */}
-        <div className="text-center">
-          <div className="text-sm md:text-base text-[#075a77]">
-            Volunteer Co-Coordinators
-          </div>
-        </div>
-      </div>
-
-      {/* Marketing Co-Directors */}
-      <div className="flex flex-col items-center">
-        {/* Photos side by side */}
-        <div className="flex justify-center gap-6 md:gap-12 lg:gap-20 mb-6 md:mb-8">
-          {marketingCoDirectors.map((member, i) => (
-            <img
-              key={i}
-              src={imageMap[member.filename] ?? ""}
-              alt={member.name}
-              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-              onClick={() => handleImageClick(member.filename)}
-            />
-          ))}
-        </div>
-
-        {/* Names below photos */}
-        <div className="text-center mb-3 md:mb-4">
-          <div className="font-[Bebas_Neue] text-primary text-lg md:text-xl">
-            {marketingCoDirectors.map(m => m.name).join(" & ")}
-          </div>
-        </div>
-
-        {/* Title below */}
-        <div className="text-center">
-          <div className="text-sm md:text-base text-[#075a77]">
-            Marketing Co-Directors
-          </div>
-        </div>
-      </div>
+    <div className="flex flex-col sm:flex-row justify-center gap-10 sm:gap-14 md:gap-20 lg:gap-28 items-start flex-wrap">
+      {renderPair(volunteerCoordinators, "Volunteer Co-Coordinators")}
+      {renderPair(marketingCoDirectors, "Marketing Co-Directors")}
     </div>
   );
 
