@@ -23,21 +23,34 @@ Object.keys(images).forEach(path => {
   imageMap[filename] = images[path].default;
 });
 
-// Team members
+// Team members grouped into rows so paired roles always share the same row
 type Member = { filename: string; name: string; title: string };
-const teamMembers: Member[] = [
-  { filename: "Huda.jpg", name: "Dr. Huda Naeem", title: "Medical Director" },
-  { filename: "Malak.jpg", name: "Malak Ezzat", title: "Clinical Manager" },
-  { filename: "Zoya Kareem.jpg", name: "Zoya Kareem", title: "Clinic Manager Assistant" },
-  { filename: "Ameera.jpg", name: "Ameera Chan", title: "Finance Director" },
-  { filename: "Sidrat-ul Muntaha.jpg", name: "Sidrat-ul Muntaha", title: "Volunteer Co-coordinator" },
-  { filename: "Doha Shehta.png", name: "Doha Shehta", title: "Volunteer Co-coordinator" },
-  { filename: "Ahmed Saleh.jpg", name: "Ahmed Saleh", title: "Community Outreach Director" },
-  { filename: "Mahmoud Rashi.jpg", name: "Mahmoud Rashid", title: "Logistics Director" },
-  { filename: "Lola Sheims.png", name: "Lola Sheims", title: "Administrative Director" },
-  { filename: "Maryam Pennino.jpg", name: "Maryam Pennino", title: "Marketing Co-Director" },
-  { filename: "Hadeeqah Qazi.jpg", name: "Hadeeqah Qazi", title: "Marketing Co-Director" },
+type Row = Member[];
+const teamRows: Row[] = [
+  // Row 1 – leadership
+  [
+    { filename: "Huda.jpg", name: "Dr. Huda Naeem", title: "Medical Director" },
+    { filename: "Malak.jpg", name: "Malak Ezzat", title: "Clinical Manager" },
+    { filename: "Zoya Kareem.jpg", name: "Zoya Kareem", title: "Clinic Manager Assistant" },
+    { filename: "Ameera.jpg", name: "Ameera Chan", title: "Finance Director" },
+  ],
+  // Row 2 – volunteer co-coordinators kept together, padded with directors
+  [
+    { filename: "Sidrat-ul Muntaha.jpg", name: "Sidrat-ul Muntaha", title: "Volunteer Co-coordinator" },
+    { filename: "Doha Shehta.png", name: "Doha Shehta", title: "Volunteer Co-coordinator" },
+    { filename: "Ahmed Saleh.jpg", name: "Ahmed Saleh", title: "Community Outreach Director" },
+    { filename: "Mahmoud Rashi.jpg", name: "Mahmoud Rashid", title: "Logistics Director" },
+  ],
+  // Row 3 – marketing co-directors kept together
+  [
+    { filename: "Lola Sheims.png", name: "Lola Sheims", title: "Administrative Director" },
+    { filename: "Maryam Pennino.jpg", name: "Maryam Pennino", title: "Marketing Co-Director" },
+    { filename: "Hadeeqah Qazi.jpg", name: "Hadeeqah Qazi", title: "Marketing Co-Director" },
+  ],
 ];
+
+// Flat list used only for the lightbox index
+const teamMembers: Member[] = teamRows.flat();
 
 export default function Team() {
   const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
@@ -61,24 +74,31 @@ export default function Team() {
         Our Team
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-20 justify-items-center max-w-7xl mx-auto">
-        {teamMembers.map((member, i) => (
-          <div key={i} className="flex flex-col items-center">
-            <img
-              src={imageMap[member.filename] ?? ""}
-              alt={member.name}
-              className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
-              onClick={() => {
-                const index = allImages.findIndex(img => img.id === member.filename);
-                setLightboxIndex(index);
-              }}
-            />
-            <div className="mt-2 font-[Bebas_Neue] text-primary text-xl md:text-2xl text-center">
-              {member.name}
-            </div>
-            <div className="text-xs sm:text-sm text-[#075a77] max-w-48 text-center">
-              {member.title}
-            </div>
+      <div className="flex flex-col gap-8 md:gap-12 items-center w-full max-w-7xl mx-auto">
+        {teamRows.map((row, rowIdx) => (
+          <div
+            key={rowIdx}
+            className="flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-12 lg:gap-20 w-full"
+          >
+            {row.map((member) => {
+              const globalIndex = allImages.findIndex(img => img.id === member.filename);
+              return (
+                <div key={member.filename} className="flex flex-col items-center w-28 sm:w-36 md:w-40">
+                  <img
+                    src={imageMap[member.filename] ?? ""}
+                    alt={member.name}
+                    className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                    onClick={() => setLightboxIndex(globalIndex)}
+                  />
+                  <div className="mt-2 font-[Bebas_Neue] text-primary text-lg sm:text-xl md:text-2xl text-center">
+                    {member.name}
+                  </div>
+                  <div className="text-xs sm:text-sm text-[#075a77] text-center">
+                    {member.title}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
